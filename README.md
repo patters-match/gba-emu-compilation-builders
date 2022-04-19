@@ -13,7 +13,7 @@ Modern Python3 builder scripts to replace the original Windows 32bit application
 
 The scripts combine the emulator binary with the game ROMs and their required metadata into a .gba ROM for Gameboy Advance. Although on many operating systems Python scripts don't support drag and drop operations, you can drag and drop multiple file selections onto the shell window in which you are preparing the command line. This makes these scripts nicely usable for building large compilations.
 
-Each script has help information accessible via the -h command line option. For example:
+Each script has help information accessible via the ```-h``` command line option. For example:
 ```
 usage: smsadvance_compile.py [-h] [-s SPLASHSCREEN] [-b BIOS [BIOS ...]] [-bb] [-e EMUBINARY] [-m] [-o OUTPUTFILE] [-ez4v1] [-ez4v2]
                              [romfile [romfile ...]]
