@@ -11,7 +11,11 @@ Modern Python3 builder scripts to replace the original Windows 32bit application
 - [NGPAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for Neo Geo Pocket / NGP Color (by Flubba, Jul 2008)
 - [Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases) enhanced Goomba Color fork for Gameboy / Gameboy Color (by Jaga, Nov 2021)
 
-The scripts combine the emulator binary with the game ROMs and their required metadata into a .gba ROM for Gameboy Advance. Although on many operating systems Python scripts don't support drag and drop operations, you can drag and drop multiple file selections onto the shell window in which you are preparing the command line. This makes these scripts nicely usable for building large compilations.
+## Purpose
+The scripts combine the emulator binary with the game ROMs and their required metadata into a .gba ROM for Gameboy Advance. Since they are Python3 scripts they can run on most platforms.
+
+## Usage
+Although on many operating systems Python scripts don't support drag and drop operations, you can drag and drop multiple file selections onto the shell window in which you are preparing the command line. This makes these scripts well suited for building large compilations. Usually the shell will alphabetically sort multiple file selections.
 
 Each script has help information accessible via the ```-h``` command line option. For example:
 ```
