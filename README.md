@@ -1,6 +1,6 @@
 # GBA Emulator Compilation Build Scripts
 
-Cross-platform Python 3 builder scripts to replace the original 32bit Windows-only tools bundled with the following Gameboy Advance emulators, in date order of initial release:
+Python 3 builder scripts to replace the original 32bit Windows-only tools bundled with the following Gameboy Advance emulators, in date order of initial release:
 - [PocketNES](https://github.com/Dwedit/PocketNES/releases) for Nintendo NES (by Loopy, Jan 2001?, later FluBBa, Dwedit)
 - [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for PC Engine (by FluBBa, Apr 2003)
 - [Goomba](http://goomba.webpersona.com) for the original Gameboy (by FluBBa, Oct 2003)
@@ -12,7 +12,7 @@ Cross-platform Python 3 builder scripts to replace the original 32bit Windows-on
 - [Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases) enhanced Goomba Color fork for Gameboy / Gameboy Color (by Jaga, Nov 2021)
 
 ## Purpose
-The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since they are Python 3 scripts they will run on most contemporary platforms.
+The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since they are Python 3 scripts they will run on most contemporary platforms, unlike the original 32bit Windows binaries.
 
 ## Usage
 You can drag and drop multiple file selections onto the shell window in which you are preparing the command line. This makes these scripts well suited for building large compilations. Usually the shell will alphabetically sort multiple file selections.
