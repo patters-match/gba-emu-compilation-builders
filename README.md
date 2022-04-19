@@ -1,6 +1,6 @@
 # GBA Emulator Compilation Build Scripts
 
-Modern Python3 builder scripts to replace the original Windows 32bit applications bundled with the following Gameboy Advance emulators:
+Modern Python3 builder scripts to replace the original Windows 32bit applications bundled with the following Gameboy Advance emulators, in order of initial release date:
 - [PocketNES](https://github.com/Dwedit/PocketNES/releases) for Nintendo NES (by Loopy, Jan 2001?)
 - [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for PC Engine (by FluBBa, Apr 2003)
 - [Goomba](http://goomba.webpersona.com) for the original Gameboy (by FluBBa, Oct 2003)
