@@ -3,7 +3,7 @@
 The emulators written for the Gameboy Advance were technically astounding considering the limited specifications of the host platform. In roughly chronological order, some of the best were:
 - PocketNES for Nintendo NES (by Loopy, Jan 2001?)
 - PCEAdvance for PC Engine (by FluBBa, Apr 2003)
-- Goomba for original Gameboy (by FluBBa, Oct 2003)
+- Goomba for the original Gameboy (by FluBBa, Oct 2003)
 - SMSAdvance for SEGA Game Gear, Master System, SG-1000 (by FluBBa, Jul 2005)
 - Cologne for ColecoVision (by FluBBa, Jan 2006)
 - MSXAdvance for MSX-1 (by FluBBa, Mar 2006)
