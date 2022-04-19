@@ -4,7 +4,7 @@ Modern Python 3 builder scripts to replace the original Windows 32bit applicatio
 - [PocketNES](https://github.com/Dwedit/PocketNES/releases) for Nintendo NES (by Loopy, Jan 2001?, later FluBBa, Dwedit)
 - [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for PC Engine (by FluBBa, Apr 2003)
 - [Goomba](http://goomba.webpersona.com) for the original Gameboy (by FluBBa, Oct 2003)
-- [SMSAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for SEGA Game Gear, Master System, SG-1000 (by FluBBa, Jul 2005)
+- [SMSAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for SEGA Master System, Game Gear, SG-1000 (by FluBBa, Jul 2005)
 - [Cologne](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for ColecoVision (by FluBBa, Jan 2006)
 - [Goomba Color](https://www.dwedit.org/gba/goombacolor.php) a Goomba fork to add Gameboy Color (by Dwedit, Jan 2006)
 - [MSXAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for MSX-1 (by FluBBa, Mar 2006)
