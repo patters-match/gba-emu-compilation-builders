@@ -9,7 +9,7 @@ Modern Python3 builder scripts to replace the original Windows 32bit application
 - [Goomba Color](https://www.dwedit.org/gba/goombacolor.php) a Goomba fork to add Gameboy Color (by Dwedit, Jan 2006)
 - [MSXAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for MSX-1 (by FluBBa, Mar 2006)
 - [NGPAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for Neo Geo Pocket / NGP Color (by Flubba, Jul 2008)
-- [Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases) the latest enhanced Goomba Color fork for Gameboy / Gameboy Color (by Jaga, Nov 2021)
+- [Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases) enhanced Goomba Color fork for Gameboy / Gameboy Color (by Jaga, Nov 2021)
 
 The scripts combine the emulator binary with the game ROMs and their required metadata into a .gba ROM for Gameboy Advance. Although on many operating systems Python scripts don't support drag and drop operations, you can drag and drop multiple file selections onto the shell window in which you are preparing the command line. This makes these scripts nicely usable for building large compilations.
 
