@@ -17,7 +17,7 @@ The scripts combine the emulator binary with the game ROMs and their required me
 ## Usage
 You can drag and drop multiple file selections onto the shell window in which you are preparing the command line. This makes these scripts well suited for building large compilations. Usually the shell will alphabetically sort multiple file selections.
 
-Each script has help information accessible via the ```-h``` command line option. For example:
+Each script has help information accessible via the **-h** command line option. For example:
 ```
 usage: smsadvance_compile.py [-h] [-s SPLASHSCREEN] [-b BIOS [BIOS ...]] [-bb] [-e EMUBINARY] [-m] [-o OUTPUTFILE] [-ez4v1] [-ez4v2]
                              [romfile [romfile ...]]
