@@ -19,7 +19,7 @@ You can drag and drop multiple file selections onto the shell window in which yo
 
 Each script has help information accessible via the ```-h``` command line option. For example:
 ```
-usage: smsadvance_compile.py [-h] [-s SPLASHSCREEN] [-b BIOS [BIOS ...]] [-bb] [-e EMUBINARY] [-m] [-o OUTPUTFILE] [-ez4v1] [-ez4v2]
+usage: smsadvance_compile.py [-h] [-s SPLASHSCREEN] [-b BIOS [BIOS ...]] [-bb] [-e EMUBINARY] [-m] [-o OUTPUTFILE] [-sav] [-pat]
                              [romfile [romfile ...]]
 
 This script will assemble the SMSAdvance emulator and Master System/Game Gear/SG-1000 ROMs into a Gameboy Advance ROM image. It is
@@ -39,11 +39,12 @@ optional arguments:
                       there is no ROM
   -e EMUBINARY        SMSAdvance binary, defaults to smsadvance.gba
   -m                  mark small ROMs suitable for link transfer
-  -o OUTPUTFILE       Compilation output filename, defaults to smsadv-compilation.gba
-  -ez4v1              For EZ-Flash IV firmware 1.x. Create a blank 64KB .sav file for the compilation, needed for the SAVER folder. Not
+  -o OUTPUTFILE       compilation output filename, defaults to smsadv-compilation.gba
+  -sav                for EZ-Flash IV firmware 1.x - create a blank 64KB .sav file for the compilation, store in the SAVER folder, not
                       needed for firmware 2.x which creates its own blank saves
-  -ez4v2              For EZ-Flash IV firmware 2.x. Create a .pat file for the compilation to force 64KB SRAM saves, store in the PATCH
-                      folder
+  -pat                for EZ-Flash IV firmware 2.x - create a .pat file for the compilation to force 64KB SRAM saves, store in the
+                      PATCH folder
 
 coded by patters in 2022
+
 ```
