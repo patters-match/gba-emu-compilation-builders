@@ -99,18 +99,18 @@ if __name__ == "__main__":
 	parser.add_argument(
 		'-o',
 		dest = 'outputfile',
-		help = "Compilation output filename, defaults to " + default_outputfile,
+		help = "compilation output filename, defaults to " + default_outputfile,
 		type = str,
 		default = default_outputfile
 	)
 	parser.add_argument(
-		'-ez4v1',
-		help = "For EZ-Flash IV firmware 1.x. Create a blank 64KB .sav file for the compilation, needed for the SAVER folder. Not needed for firmware 2.x which creates its own blank saves",
+		'-sav',
+		help = "for EZ-Flash IV firmware 1.x - create a blank 64KB .sav file for the compilation, store in the SAVER folder, not needed for firmware 2.x which creates its own blank saves",
 		action = 'store_true'
 	)
 	parser.add_argument(
-		'-ez4v2',
-		help = "For EZ-Flash IV firmware 2.x. Create a .pat file for the compilation to force 64KB SRAM saves, store in the PATCH folder",
+		'-pat',
+		help = "for EZ-Flash IV firmware 2.x - create a .pat file for the compilation to force 64KB SRAM saves, store in the PATCH folder",
 		action = 'store_true'
 	)
 	args = parser.parse_args()
@@ -157,13 +157,13 @@ if __name__ == "__main__":
 
 	writefile(args.outputfile, compilation)
 
-	if args.ez4v2:
+	if args.pat:
 		# EZ-Flash IV fw2.x GSS patcher metadata to force 64KB SRAM saves - for PATCH folder on SD card
 		patchname = os.path.splitext(args.outputfile)[0] + ".pat"
 		patchdata = b'QlpoOTFBWSZTWRbvmZEAAAT44fyAgIAAEUAAAACIAAQAAAQESaAAVEIaaGRoxBKeqQD1GTJoks40324rSIskHSFhIywXzTCaqwSzf4exCBTgBk/i7kinChIC3fMyIA=='
 		writefile(patchname, bz2.decompress(base64.b64decode(patchdata)))
 
-	if args.ez4v1:
+	if args.sav:
 		# EZ-Flash IV fw1.x blank save - for SAVER folder on SD card
 		savename = os.path.splitext(args.outputfile)[0] + ".sav"
 		saveempty = b"\xff" * SRAM_SAVE
