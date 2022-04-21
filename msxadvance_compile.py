@@ -2,7 +2,7 @@
 
 import sys, os.path, struct, argparse, bz2, base64
 
-EMUID = int(0x1A4C4F43) # "COL",0x1A - probably unintentional
+EMUID = int(0x1A4C4F43) # "COL",0x1A - probably unintentional since Formats.txt incorrectly states it should be "MSX",0x1A
 SRAM_SAVE = 65536
 
 default_outputfile = "msxadv-compilation.gba"
