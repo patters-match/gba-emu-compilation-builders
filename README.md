@@ -52,10 +52,10 @@ coded by patters in 2022
 ## Automation
 With a simple for loop the scripts can also create a standalone executable for each game in a folder.
 
-Bash:
+**Bash**:
 
 ```for file in *.pce *.iso ; do ./pceadvance_compile.py "${file}" -o "${file%.*}.gba" ; done```
 
-Windows:
+**Windows**:
 
 ```for %f in (*.pce *.iso) do @pceadvance_compile.py "%f" -o "%~nf.gba"```
