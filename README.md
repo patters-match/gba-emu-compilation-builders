@@ -14,7 +14,7 @@ Python 3 builder scripts for the following Gameboy Advance emulators, in date or
 ## Purpose
 The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since they are Python 3 scripts they will run on most contemporary platforms, unlike the original 32bit Windows binaries.
 
-With a simple for loop the scripts can also create a standalone ```.gba``` file for each game in a folder, for instance:
+With a simple for loop the scripts can also create a standalone executable for each game in a folder, for instance:
 ```for file in *.pce *.iso ; do ./pceadvance_compile.py "${file}" -o "${file%.*}.gba" ; done```
 
 ## Usage
