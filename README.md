@@ -69,7 +69,7 @@ coded by patters in 2022
   - optionally allows ROM filenames to replace the original ROM header names in the game list
 - PocketNES:
   - can lookup ROM checksum in PocketNES Menu Maker database (*pnesmmw.mdb*) for optimal ROM settings, sprite/mem follow
-  - can fetch game titles from PocketNES Menu Maker database
+  - can prefer game titles from PocketNES Menu Maker database
 
 ## Automation
 With a simple for loop the scripts can also create a standalone executable for each game in a folder.
