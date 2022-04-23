@@ -19,26 +19,38 @@ You can drag and drop multiple file selections onto the shell window in which yo
 
 Each script has help information accessible via the ```-h``` command line option. For example:
 ```
-usage: pocketnes_compile.py [-h] [-s SPLASHSCREEN] [-e EMUBINARY] [-db DATABASE] [-dbn] [-m] [-c] [-o OUTPUTFILE] [-sav] [-pat] romfile [romfile ...]
+usage: pocketnes_compile.py [-h] [-s SPLASHSCREEN] [-e EMUBINARY]
+                            [-db DATABASE] [-dbn] [-m] [-c] [-o OUTPUTFILE]
+                            [-sav] [-pat]
+                            romfile [romfile ...]
 
-This script will assemble the PocketNES emulator and NES ROMs into a Gameboy Advance ROM image. It is recommended to type the script name, then drag and drop multiple
-ROM files onto the shell window, then add any additional arguments as needed.
+This script will assemble the PocketNES emulator and NES ROMs into a Gameboy
+Advance ROM image. It is recommended to type the script name, then drag and
+drop multiple ROM files onto the shell window, then add any additional
+arguments as needed.
 
 positional arguments:
-  romfile          .nes image to add to compilation. Drag and drop multiple files onto your shell window.
+  romfile          .nes image to add to compilation. Drag and drop multiple
+                   files onto your shell window.
 
 optional arguments:
   -h, --help       show this help message and exit
   -s SPLASHSCREEN  76800 byte raw 240x160 15bit splashscreen image
   -e EMUBINARY     PocketNES binary, defaults to pocketnes.gba
-  -db DATABASE     PocketNES Menu Maker Database file which stores optimal flags and sprite follow settings for many games, defaults to pnesmmw.mdb
+  -db DATABASE     PocketNES Menu Maker Database file which stores optimal
+                   flags and sprite follow settings for many games, defaults
+                   to pnesmmw.mdb
   -dbn             use game titles from PocketNES Menu Maker Database
   -m               mark small ROMs suitable for link transfer
   -c               clean brackets from ROM titles
-  -o OUTPUTFILE    compilation output filename, defaults to pocketnes-compilation.gba
-  -sav             for EZ-Flash IV firmware 1.x - create a blank 64KB .sav file for the compilation, store in the SAVER folder, not needed for firmware 2.x which
-                   creates its own blank saves
-  -pat             for EZ-Flash IV firmware 2.x - create a .pat file for the compilation to force 64KB SRAM saves, store in the PATCH folder
+  -o OUTPUTFILE    compilation output filename, defaults to pocketnes-
+                   compilation.gba
+  -sav             for EZ-Flash IV firmware 1.x - create a blank 64KB .sav
+                   file for the compilation, store in the SAVER folder, not
+                   needed for firmware 2.x which creates its own blank saves
+  -pat             for EZ-Flash IV firmware 2.x - create a .pat file for the
+                   compilation to force 64KB SRAM saves, store in the PATCH
+                   folder
 
 coded by patters in 2022
 ```
