@@ -51,7 +51,7 @@ coded by patters in 2022
 
 ## Features
 - Drag and drop a selection of ROMs onto the shell window after typing the script name to easily add multiple ROMs
-- Auto-detection of ROM types for emulators that support multiple types with specific header requirements (```.sms```/```.gg```, ```.pce```/```.iso```)
+- Auto-detection of ROM types for emulators that support multiple types with specific header requirements
 - Region options and PAL timings are now auto-detected based on ROM naming
 - Blank SRAM save files of the appropriate size can now be created automatically using the ```-sav``` option
 - GSS patch files for EZ-Flash IV firmware 2.0 (to force 64KB SRAM saves) can now be created automatically using the ```-pat``` option
