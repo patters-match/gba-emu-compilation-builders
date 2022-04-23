@@ -92,30 +92,37 @@ if __name__ == "__main__":
 
 		if romtype.lower() == ".gb" or romtype.lower() == ".gbc":
 			rom = item.read()
-			if args.f:
-				# determine whether this ROM has an 11, 15, or 16 byte title
-				# https://gbdev.gg8.se/wiki/articles/The_Cartridge_Header
-				# https://github.com/EvilJagaGenius/jagoombacolor/blob/eade75121d7c2568b812867de854e6cdcd527271/src/main.c#L651
-				nogameid = False
-				if rom[323] == 128 or rom[323] == 192: # GBC game
-					for romchar in range(319,324):
-						if rom[romchar] == 0: # can't be a GAME_ID
-							nogameid = True
-							break
-					if nogameid:
-						titlelength = 15
-					else:
-						titlelength = 11
-				else:
-					titlelength = 16
 
-				headername = struct.pack(str(titlelength) + "s",romtitle[:titlelength].encode('ascii'))
+			# determine whether this ROM has an 11, 15, or 16 byte title
+			# https://gbdev.gg8.se/wiki/articles/The_Cartridge_Header
+			# https://github.com/EvilJagaGenius/jagoombacolor/blob/eade75121d7c2568b812867de854e6cdcd527271/src/main.c#L651
+			nogameid = False
+			if rom[323] == 128 or rom[323] == 192: # GBC game
+				for romchar in range(319,324):
+					if rom[romchar] == 0: # can't be a GAME_ID
+						nogameid = True
+						break
+				if nogameid:
+					titlelength = 15
+				else:
+					titlelength = 11
+			else:
+				titlelength = 16
+
+			# existing ROM title
+			outputtitle = rom[308:308+titlelength].decode('ascii')
+
+			if args.f:
+				outputtitle = romtitle[:titlelength]
+				outputtitle = outputtitle.split(" [")[0] # strip the square bracket parts of the name (not many chars available)
+				outputtitle = outputtitle.split(" (")[0] # strip the bracket parts of the name (not many chars available)
+				headername = struct.pack(str(titlelength) + "s",outputtitle.encode('ascii'))
 				romarray = bytearray(rom)
 				romarray[308:308+titlelength] = headername
 				rom = romarray
 
 			compilation = compilation + rom
-			print (romtitle)
+			print (outputtitle)
 		else:
 			print("Error: unsupported filetype for compilation -", romfilename)
 			sys.exit(1)
