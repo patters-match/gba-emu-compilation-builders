@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import sys, os.path, struct, argparse, bz2, base64
+from sys import argv
 
 EMUID = int(0x1A4C4F43) # "COL",0x1A
 SRAM_SAVE = 65536
@@ -27,28 +28,16 @@ header_struct_format = "<8I31sc" # https://docs.python.org/3/library/struct.html
 #	char name[32] null terminated;
 #} romheader;
 
-def readfile(name):
-	try:
-		fd = open(name, "rb")
-		contents = fd.read()
-		fd.close()
-	except IOError:
-		print("Error reading", name)
-		sys.exit(1)
-	return contents
+#def readfile(name):
+#	with open(name, "rb") as fh:
+#		contents = fh.read()
+#	return contents
 
 def writefile(name, contents):
-	try:
-		fd = open(name, "wb")
-		fd.write(contents)
-		fd.close()
-	except IOError:
-		print("Error writing", name)
-		sys.exit(1)
-	else:
+	with open(name, "wb") as fh:
+		fh.write(contents)
 		if name == default_outputfile:
-			print("...wrote", name)
-
+			print("...wrote", name)	
 
 #def get_bit(value, n):
 #    return ((value >> n & 1) != 0)
@@ -61,6 +50,12 @@ def set_bit(value, n):
 
 
 if __name__ == "__main__":
+
+	if os.path.dirname(argv[0]) and os.path.dirname(argv[0]) != ".":
+		localpath = os.path.dirname(argv[0]) + os.path.sep
+	else:
+		localpath = ""
+
 	parser = argparse.ArgumentParser(
 		description="This script will assemble the Cologne emulator, a BIOS and Colecovision ROMs into a Gameboy Advance ROM image. It is recommended to type the script name, then drag and drop multiple ROM files onto the shell window, then add any additional arguments as needed.",
 		epilog="coded by patters in 2022"

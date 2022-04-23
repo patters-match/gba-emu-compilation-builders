@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-import sys, os.path, struct, argparse
+import sys, os.path, struct, argparse #, bz2, base64
+from sys import argv
 
 EMUID = int(0x1A53454E) # "NES",0x1A - probably unintentional
 SRAM_SAVE = 8192
@@ -27,28 +28,17 @@ header_struct_format = "<31sc5I12s" # https://docs.python.org/3/library/struct.h
 #	char unknown[12];
 #} romheader;
 
+
 def readfile(name):
-	try:
-		fd = open(name, "rb")
-		contents = fd.read()
-		fd.close()
-	except IOError:
-		print("Error reading", name)
-		sys.exit(1)
+	with open(name, "rb") as fh:
+		contents = fh.read()
 	return contents
 
 def writefile(name, contents):
-	try:
-		fd = open(name, "wb")
-		fd.write(contents)
-		fd.close()
-	except IOError:
-		print("Error writing", name)
-		sys.exit(1)
-	else:
+	with open(name, "wb") as fh:
+		fh.write(contents)
 		if name == default_outputfile:
-			print("...wrote", name)
-
+			print("...wrote", name)	
 
 #def get_bit(value, n):
 #    return ((value >> n & 1) != 0)
@@ -61,6 +51,12 @@ def set_bit(value, n):
 
 
 if __name__ == "__main__":
+
+	if os.path.dirname(argv[0]) and os.path.dirname(argv[0]) != ".":
+		localpath = os.path.dirname(argv[0]) + os.path.sep
+	else:
+		localpath = ""
+
 	parser = argparse.ArgumentParser(
 		description="This script will assemble the PCEAdvance emulator, PC Engine/Turbografx-16 .pce ROM images, and .iso CD-ROM data tracks into a Gameboy Advance ROM image. It is recommended to type the script name, then drag and drop multiple ROM files onto the shell window, then add any additional arguments as needed.",
 		epilog="coded by patters in 2022"
@@ -81,15 +77,16 @@ if __name__ == "__main__":
 	parser.add_argument(
 		'-b',
 		dest = 'cdrombios',
-		help = "CD-ROM / Super CD-ROM BIOS rom image, defaults to " + default_cdrombios,
-		type = argparse.FileType('rb'),
+		help = "CD-ROM / Super CD-ROM BIOS rom image, defaults to " + localpath + default_cdrombios,
+		type = str,
+		default = localpath + default_cdrombios
 	)
 	parser.add_argument(
 		'-e',
 		dest = 'emubinary',
-		help = "PCEAdvance binary, defaults to " + default_emubinary,
+		help = "PCEAdvance binary, defaults to " + localpath + default_emubinary,
 		type = argparse.FileType('rb'),
-		default = default_emubinary
+		default = localpath + default_emubinary
 	)
 	parser.add_argument(
 		'-t',
@@ -174,11 +171,7 @@ if __name__ == "__main__":
 			# only a single CD-ROM image is supported per compilation
 			if iso_count == 0:
 				# first data track ISO needs a CD-ROM BIOS + optional TCD tracklist first
-				if args.cdrombios:
-					cdbios = args.cdrombios.read()
-				else:
-					cdbios = readfile(default_cdrombios)
-
+				cdbios = readfile(cdrombios)
 				cdbios = cdbios + b"\0" * (len(cdbios)%4)
 
 				# use the ISO name for the cdbios entry in the rom list

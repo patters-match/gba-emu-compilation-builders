@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import sys, os.path, struct, argparse, bz2, base64
+from sys import argv
 
 SRAM_SAVE = 65536
 
@@ -10,30 +11,24 @@ default_emubinary = "jagoombacolor.gba"
 # no emulator-specific headers are used, Goomba will parse ROM headers in concatenated data
 # use this script for Goomba, Goomba Color, and Jagoomba
 
-def readfile(name):
-	try:
-		fd = open(name, "rb")
-		contents = fd.read()
-		fd.close()
-	except IOError:
-		print("Error reading", name)
-		sys.exit(1)
-	return contents
+#def readfile(name):
+#	with open(name, "rb") as fh:
+#		contents = fh.read()
+#	return contents
 
 def writefile(name, contents):
-	try:
-		fd = open(name, "wb")
-		fd.write(contents)
-		fd.close()
-	except IOError:
-		print("Error writing", name)
-		sys.exit(1)
-	else:
+	with open(name, "wb") as fh:
+		fh.write(contents)
 		if name == default_outputfile:
-			print("...wrote", name)
-
+			print("...wrote", name)	
 
 if __name__ == "__main__":
+
+	if os.path.dirname(argv[0]) and os.path.dirname(argv[0]) != ".":
+		localpath = os.path.dirname(argv[0]) + os.path.sep
+	else:
+		localpath = ""
+
 	parser = argparse.ArgumentParser(
 		description="This script will assemble the Goomba/Goomba Color/Jagoomba emulator and Gameboy/Gameboy Color ROMs into a Gameboy Advance ROM image. It is recommended to type the script name, then drag and drop multiple ROM files onto the shell window, then add any additional arguments as needed.",
 		epilog="coded by patters in 2022"
@@ -54,9 +49,9 @@ if __name__ == "__main__":
 	parser.add_argument(
 		'-e', 
 		dest = 'emubinary',
-		help = "Goomba binary, defaults to " + default_emubinary,
+		help = "Goomba binary, defaults to " + localpath + default_emubinary,
 		type = argparse.FileType('rb'),
-		default = default_emubinary
+		default = localpath + default_emubinary
 	)
 
 	# don't use FileType('wb') here because it writes a zero-byte file even if it doesn't parse the arguments correctly

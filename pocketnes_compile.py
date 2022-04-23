@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 
-import sys, os.path, struct, argparse, bz2, base64
+import sys, os.path, struct, argparse, bz2, base64, zlib
+from sys import argv
 
 SRAM_SAVE = 65536
 
 default_outputfile = "pocketnes-compilation.gba"
 default_emubinary = "pocketnes.gba"
+default_database = "pnesmmw.mdb"
 header_struct_format = "<31sc4I" # https://docs.python.org/3/library/struct.html
 
 # ROM header
@@ -25,27 +27,15 @@ header_struct_format = "<31sc4I" # https://docs.python.org/3/library/struct.html
 #} romheader;
 
 def readfile(name):
-	try:
-		fd = open(name, "rb")
-		contents = fd.read()
-		fd.close()
-	except IOError:
-		print("Error reading", name)
-		sys.exit(1)
+	with open(name, "rb") as fh:
+		contents = fh.read()
 	return contents
 
 def writefile(name, contents):
-	try:
-		fd = open(name, "wb")
-		fd.write(contents)
-		fd.close()
-	except IOError:
-		print("Error writing", name)
-		sys.exit(1)
-	else:
+	with open(name, "wb") as fh:
+		fh.write(contents)
 		if name == default_outputfile:
-			print("...wrote", name)
-
+			print("...wrote", name)	
 
 #def get_bit(value, n):
 #    return ((value >> n & 1) != 0)
@@ -58,6 +48,12 @@ def set_bit(value, n):
 
 
 if __name__ == "__main__":
+
+	if os.path.dirname(argv[0]) and os.path.dirname(argv[0]) != ".":
+		localpath = os.path.dirname(argv[0]) + os.path.sep
+	else:
+		localpath = ""
+
 	parser = argparse.ArgumentParser(
 		description="This script will assemble the PocketNES emulator and NES ROMs into a Gameboy Advance ROM image. It is recommended to type the script name, then drag and drop multiple ROM files onto the shell window, then add any additional arguments as needed.",
 		epilog="coded by patters in 2022"
@@ -78,9 +74,16 @@ if __name__ == "__main__":
 	parser.add_argument(
 		'-e', 
 		dest = 'emubinary',
-		help = "PocketNES binary, defaults to " + default_emubinary,
+		help = "PocketNES binary, defaults to " + localpath + default_emubinary,
 		type = argparse.FileType('rb'),
-		default = default_emubinary
+		default = localpath + default_emubinary
+	)
+	parser.add_argument(
+		'-db', 
+		dest = 'database',
+		help = "PocketNES Menu Maker Database file which stores optimal flags and sprite follow settings for many games, defaults to " + localpath + default_database,
+		type = str,
+		default = localpath + default_database
 	)
 	parser.add_argument(
 		'-m',
@@ -132,14 +135,37 @@ if __name__ == "__main__":
 
 		if romtype.lower() == ".nes":
 
-			if "(E)" in romtitle or "(Europe)" in romtitle or "(EUR)" in romtitle:
-				flags = set_bit (flags, 2) # set PAL timing for EUR-only titles
+			rom = item.read()
+
+			if os.path.exists(args.database):
+				#use PocketNES Menu Maker database metadata for the roms, if the database is present
+
+				if rom[0:4] == b'NES\x1a':
+					#rom header is present, it needs to be removed to checksum only the rom data
+					romdata = rom[16:]
+				else:
+					romdata = rom
+				crcstr = hex(zlib.crc32(romdata))
+				crcstr = str(crcstr)[2:]
+
+				with open(args.database) as fh:
+					lines = fh.readlines()
+					for record in lines:
+						if(crcstr in record):
+							recorddata = record.split("|")
+							if recorddata[2]:
+								flags = int(recorddata[2])
+							if recorddata[3]:
+								follow = int(recorddata[3].split(" ")[0]) # remove trailing comments
+
+			else:
+				if "(E)" in romtitle or "(Europe)" in romtitle or "(EUR)" in romtitle:
+					flags = set_bit (flags, 2) # set PAL timing for EUR-only titles
 
 		else:
 			print("Error: unsupported filetype for compilation -", romfilename)
 			sys.exit(1)
 
-		rom = item.read()
 		rom = rom + b"\0" * (len(rom)%4)
 		romheader = struct.pack(header_struct_format, romtitle.encode('ascii'), b"\0", len(rom), flags, follow, 0)
 		compilation = compilation + romheader + rom
