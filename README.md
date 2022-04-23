@@ -68,8 +68,8 @@ coded by patters in 2022
   - works around an EZ-Flash issue where some ROMs would cause duplicate game list entries
   - optionally allows ROM filenames to replace the original ROM header names in the game list
 - PocketNES:
-  - use ROM checksum with PocketNES Menu Maker database (*pnesmmw.mdb*) when present for optimal ROM settings, sprite/mem follow
-  - can game titles from PocketNES Menu Maker database
+  - can lookup ROM checksum in PocketNES Menu Maker database (*pnesmmw.mdb*) for optimal ROM settings, sprite/mem follow
+  - can fetch game titles from PocketNES Menu Maker database
 
 ## Automation
 With a simple for loop the scripts can also create a standalone executable for each game in a folder.
