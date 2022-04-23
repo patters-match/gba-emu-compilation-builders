@@ -153,11 +153,16 @@ if __name__ == "__main__":
 					for record in lines:
 						if(crcstr in record):
 							recorddata = record.split("|")
-							if recorddata[2]:
-								flags = int(recorddata[2])
-							if recorddata[3]:
-								follow = int(recorddata[3].split(" ")[0]) # remove trailing comments
-
+							if len(recorddata) > 2:
+								flagrecord = recorddata[2]
+								if " " in flagrecord:
+									flagrecord = flagrecord.split(" ")[0] # remove trailing comments
+								flags = int(flagrecord)
+							if len(recorddata) > 3:
+								followrecord = recorddata[3]
+								if " " in followrecord:
+									followrecord = followrecord.split(" ")[0] # remove trailing comments
+								follow = int(followrecord)
 			else:
 				if "(E)" in romtitle or "(Europe)" in romtitle or "(EUR)" in romtitle:
 					flags = set_bit (flags, 2) # set PAL timing for EUR-only titles
