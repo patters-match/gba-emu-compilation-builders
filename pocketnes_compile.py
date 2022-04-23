@@ -86,6 +86,11 @@ if __name__ == "__main__":
 		default = localpath + default_database
 	)
 	parser.add_argument(
+		'-dbn',
+		help = "use game titles from PocketNES Menu Maker Database",
+		action = 'store_true'
+	)	
+	parser.add_argument(
 		'-m',
 		help = "mark small ROMs suitable for link transfer",
 		action = 'store_true'
@@ -125,7 +130,6 @@ if __name__ == "__main__":
 		romfilename = os.path.split(item.name)[1]
 		romtype = os.path.splitext(romfilename)[1]
 		if args.m:
-			print(os.path.getsize(item.name))
 			if os.path.getsize(item.name) <= 196608:
 				romtitle = "* " + os.path.splitext(romfilename)[0][:29]
 			else:
@@ -167,6 +171,16 @@ if __name__ == "__main__":
 										followrecord = followrecord.split(" ")[0] # remove trailing comments
 									if followrecord:
 										follow = int(followrecord)
+							if args.dbn:
+								titlerecord = recorddata[1].split(" [")[0] # strip the square bracket parts of the name
+								if args.m:
+									if os.path.getsize(item.name) <= 196608:
+										romtitle = "* " + titlerecord[:29]
+									else:
+										romtitle = "  " + titlerecord[:29]
+								else:
+									romtitle = titlerecord[:31]
+
 			else:
 				if "(E)" in romtitle or "(Europe)" in romtitle or "(EUR)" in romtitle:
 					flags = set_bit (flags, 2) # set PAL timing for EUR-only titles
@@ -179,7 +193,7 @@ if __name__ == "__main__":
 		romheader = struct.pack(header_struct_format, romtitle.encode('ascii'), b"\0", len(rom), flags, follow, 0)
 		compilation = compilation + romheader + rom
 
-		print (romfilename)
+		print (romtitle)
 
 	writefile(args.outputfile, compilation)
 
