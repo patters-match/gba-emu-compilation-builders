@@ -65,7 +65,7 @@ coded by patters in 2022
   - Some sprite follow settings for PC Engine (those featured in gamelist.txt)
   - CD BIOS automatically added when an ISO image is added, and titled with the ISO name
 - Goomba:
-  - works around an EZ4 issue where some ROMs would cause duplicate game list entries
+  - works around an EZ-Flash issue where some ROMs would cause duplicate game list entries
   - optionally allows ROM filenames to replace the original ROM header names in the game list
 - PocketNES:
   - will compare the ROM checksum with the PocketNES Menu Maker database (pnesmmw.mdb, when present) for optimal ROM settings, sprite follow value etc.
