@@ -15,7 +15,7 @@ Python 3 builder scripts for the following Gameboy Advance emulators, in date or
 The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since they are Python 3 scripts they will run on most contemporary platforms, unlike the original 32bit Windows binaries.
 
 ## Usage
-You can drag and drop multiple file selections onto the shell window in which you are preparing the command line. This makes these scripts well suited for building large compilations. Usually the shell will alphabetically sort multiple file selections.
+You can drag and drop multiple file selections onto the shell window in which you are preparing the command line. Most options are not needed since they have sensible defaults. This makes these scripts well suited for building large compilations very easily. Usually the shell will alphabetically sort multiple file selections.
 
 Each script has help information accessible via the ```-h``` command line option. For example:
 ```
@@ -48,6 +48,27 @@ optional arguments:
 coded by patters in 2022
 
 ```
+
+## Features
+- Drag and drop a selection of ROMs onto the shell window after typing the script name to easily add multiple ROMS
+- Splash screen support
+- Optional overrides of file paths
+- Boot to BIOS support
+- Auto-detection of ROM types for emulators that support multiple types (SMS/GG, PCE/ISO)
+- Region options and PAL timings are now autodetected based on ROM naming
+- Blank ```.sav``` SRAM save files of the appropriate size can now be created automatically using the ```-sav``` option
+- ```.pat``` files for EZ-Flash IV firmware 2.0 (to force 64KB SRAM saves) can now be created automatically using the ```-pat``` option
+- Patch file data is encoded within the script body - no external dependency
+- Small ROMs suitable for link transfer (<192KB) can optionally be marked in the game list
+- PCEAdvance:
+  - ISO and TCD tracklist support for PC Engine CD-ROM support
+  - Some sprite follow settings for PC Engine (those featured in gamelist.txt)
+  - CD BIOS automatically added when an ISO image is added, and titled with the ISO name
+- Goomba:
+  - works around an EZ4 issue where some ROMs would cause duplicate game list entries
+  - optionally allows ROM filenames to replace the original ROM header names in the game list
+- PocketNES:
+  - will compare the ROM checksum with the PocketNES Menu Maker database (pnesmmw.mdb, when present) for optimal ROM settings, sprite follow value etc.
 
 ## Automation
 With a simple for loop the scripts can also create a standalone executable for each game in a folder.
