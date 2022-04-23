@@ -89,6 +89,11 @@ if __name__ == "__main__":
 		type = argparse.FileType('rb'),
 		default = localpath + default_emubinary
 	)
+	parser.add_argument(
+		'-c',
+		help = "clean brackets from ROM titles",
+		action = 'store_true'
+	)
 
 	# don't use FileType('wb') here because it writes a zero-byte file even if it doesn't parse the arguments correctly
 	parser.add_argument(
@@ -123,7 +128,7 @@ if __name__ == "__main__":
 		bios = args.bios.read()
 		bios = bios + b"\0" * (len(bios)%4)
 		biosfilename = os.path.split(args.bios.name)[1]
-		biosheader = struct.pack(header_struct_format, EMUID, len(bios), flags, follow, biosflag, 0, 0, 0, biosfilename.encode('ascii'), b"\0")
+		biosheader = struct.pack(header_struct_format, EMUID, len(bios), flags, follow, biosflag, 0, 0, 0, biosfilename[:31].encode('ascii'), b"\0")
 		compilation = compilation + biosheader + bios
 
 	for item in args.romfile:
@@ -133,7 +138,7 @@ if __name__ == "__main__":
 		follow = 0 # sprite or address follow for Unscaled (Auto) display mode
 
 		romfilename = os.path.split(item.name)[1]
-		romtitle = os.path.splitext(romfilename)[0][:31]
+		romtitle = os.path.splitext(romfilename)[0]
 		romtype = os.path.splitext(romfilename)[1]
 
 		if romtype.lower() == ".ngp":
@@ -142,6 +147,12 @@ if __name__ == "__main__":
 		else:
 			print("Error: unsupported filetype for compilation -", romfilename)
 			sys.exit(1)
+
+		if args.c:
+			romtitle = romtitle.split(" [")[0] # strip the square bracket parts of the name
+			romtitle = romtitle.split(" (")[0] # strip the bracket parts of the name
+
+		romtitle = romtitle[:31]
 
 		rom = item.read()
 		rom = rom + b"\0" * (len(rom)%4)

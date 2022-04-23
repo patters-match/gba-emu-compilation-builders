@@ -94,6 +94,12 @@ if __name__ == "__main__":
 		help = "CD-ROM track index file, needed for games with multiple data tracks, defaults to <iso_name>.tcd",
 		type = argparse.FileType('rb'),
 	)
+	parser.add_argument(
+		'-c',
+		help = "clean brackets from ROM titles",
+		action = 'store_true'
+	)
+
 	# don't use FileType('wb') here because it writes a zero-byte file even if it doesn't parse the arguments correctly
 	parser.add_argument(
 		'-o',
@@ -130,7 +136,7 @@ if __name__ == "__main__":
 		follow = 0 # sprite or address follow for 'Unscaled (Auto)' display mode
 
 		romfilename = os.path.split(item.name)[1]
-		romtitle = os.path.splitext(romfilename)[0][:31]
+		romtitle = os.path.splitext(romfilename)[0]
 		romtype = os.path.splitext(romfilename)[1]
 
 		# HuCard
@@ -160,6 +166,12 @@ if __name__ == "__main__":
 			if "raiden" in romtitle.lower():
 				follow = 5
 
+			if args.c:
+				romtitle = romtitle.split(" [")[0] # strip the square bracket parts of the name
+				romtitle = romtitle.split(" (")[0] # strip the bracket parts of the name
+
+			romtitle = romtitle[:31]
+
 			# unsure why 16 bytes are added to len(rom), but the original builder does this, despite that it pads the roms a lot more than 16b
 			# however, you can't add more than one rom to the compilation unless this is done
 			romheader = struct.pack(header_struct_format, romtitle.encode('ascii'), b"\0", len(rom)+16, flags, follow, 0, EMUID, b"@           ")
@@ -173,6 +185,12 @@ if __name__ == "__main__":
 				# first data track ISO needs a CD-ROM BIOS + optional TCD tracklist first
 				cdbios = readfile(cdrombios)
 				cdbios = cdbios + b"\0" * (len(cdbios)%4)
+	
+				if args.c:
+					romtitle = romtitle.split(" [")[0] # strip the square bracket parts of the name
+					romtitle = romtitle.split(" (")[0] # strip the bracket parts of the name
+
+				romtitle = romtitle[:31]
 
 				# use the ISO name for the cdbios entry in the rom list
 				cdromheader = struct.pack(header_struct_format, romtitle.encode('ascii'), b"\0", len(cdbios)+16, flags, follow, 0, EMUID, b"@           ")

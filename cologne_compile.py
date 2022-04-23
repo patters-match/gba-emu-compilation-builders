@@ -92,6 +92,11 @@ if __name__ == "__main__":
 		type = argparse.FileType('rb'),
 		default = default_emubinary
 	)
+	parser.add_argument(
+		'-c',
+		help = "clean brackets from ROM titles",
+		action = 'store_true'
+	)
 
 	# don't use FileType('wb') here because it writes a zero-byte file even if it doesn't parse the arguments correctly
 	parser.add_argument(
@@ -136,7 +141,7 @@ if __name__ == "__main__":
 		follow = 0 # sprite or address follow for Unscaled (Auto) display mode
 
 		romfilename = os.path.split(item.name)[1]
-		romtitle = os.path.splitext(romfilename)[0][:31]
+		romtitle = os.path.splitext(romfilename)[0]
 		romtype = os.path.splitext(romfilename)[1]
 
 		if romtype.lower() == ".col" or romtype.lower() == ".rom":
@@ -147,6 +152,12 @@ if __name__ == "__main__":
 		else:
 			print("Error: unsupported filetype for compilation -", romfilename)
 			sys.exit(1)
+
+		if args.c:
+			romtitle = romtitle.split(" [")[0] # strip the square bracket parts of the name
+			romtitle = romtitle.split(" (")[0] # strip the bracket parts of the name
+
+		romtitle = romtitle[:31]
 
 		rom = item.read()
 		rom = rom + b"\0" * (len(rom)%4)

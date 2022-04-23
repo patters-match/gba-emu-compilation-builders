@@ -94,7 +94,12 @@ if __name__ == "__main__":
 		'-m',
 		help = "mark small ROMs suitable for link transfer",
 		action = 'store_true'
-	)	
+	)
+	parser.add_argument(
+		'-c',
+		help = "clean brackets from ROM titles",
+		action = 'store_true'
+	)
 
 	# don't use FileType('wb') here because it writes a zero-byte file even if it doesn't parse the arguments correctly
 	parser.add_argument(
@@ -129,13 +134,7 @@ if __name__ == "__main__":
 
 		romfilename = os.path.split(item.name)[1]
 		romtype = os.path.splitext(romfilename)[1]
-		if args.m:
-			if os.path.getsize(item.name) <= 196608:
-				romtitle = "* " + os.path.splitext(romfilename)[0][:29]
-			else:
-				romtitle = "  " + os.path.splitext(romfilename)[0][:29]
-		else:
-			romtitle = os.path.splitext(romfilename)[0][:31]
+		romtitle = os.path.splitext(romfilename)[0]
 
 		if romtype.lower() == ".nes":
 
@@ -172,18 +171,24 @@ if __name__ == "__main__":
 									if followrecord:
 										follow = int(followrecord)
 							if args.dbn:
-								titlerecord = recorddata[1].split(" [")[0] # strip the square bracket parts of the name
-								if args.m:
-									if os.path.getsize(item.name) <= 196608:
-										romtitle = "* " + titlerecord[:29]
-									else:
-										romtitle = "  " + titlerecord[:29]
-								else:
-									romtitle = titlerecord[:31]
+								romtitle = recorddata[1]
 
 			else:
 				if "(E)" in romtitle or "(Europe)" in romtitle or "(EUR)" in romtitle:
 					flags = set_bit (flags, 2) # set PAL timing for EUR-only titles
+
+			if args.m:
+				if os.path.getsize(item.name) <= 196608:
+					romtitle = "* " + romtitle
+				else:
+					romtitle = "  " + romtitle
+
+			if args.c:
+				romtitle = romtitle.split(" [")[0] # strip the square bracket parts of the name
+				romtitle = romtitle.split(" (")[0] # strip the bracket parts of the name
+
+			romtitle = romtitle[:31]
+
 
 		else:
 			print("Error: unsupported filetype for compilation -", romfilename)
