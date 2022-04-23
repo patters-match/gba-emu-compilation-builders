@@ -1,6 +1,6 @@
 # GBA Emulator Compilation Build Scripts
 
-Python 3 builder scripts for the following Gameboy Advance emulators, in date order of initial release:
+Python 3 builder scripts for the following emulators for Gameboy Advance, in date order of initial release:
 - [PocketNES](https://github.com/Dwedit/PocketNES/releases) for Nintendo NES (by Loopy, Jan 2001?, later FluBBa, Dwedit)
 - [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for PC Engine (by FluBBa, Apr 2003)
 - [Goomba](http://goomba.webpersona.com) for the original Gameboy (by FluBBa, Oct 2003)
