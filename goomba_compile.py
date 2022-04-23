@@ -127,6 +127,10 @@ if __name__ == "__main__":
 			print("Error: unsupported filetype for compilation -", romfilename)
 			sys.exit(1)
 
+	# on EZ-Flash IV, random data in PSRAM after Goomba may be interpreted as GB roms without 264 null bytes of padding, leading to duplicate game list entries
+	# https://www.dwedit.org/dwedit_board/viewtopic.php?id=643
+	compilation = compilation + b"\x00" * 264
+
 	writefile(args.outputfile, compilation)
 
 	if args.pat:
