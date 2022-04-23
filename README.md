@@ -61,7 +61,7 @@ coded by patters in 2022
 - Boot-to-BIOS support
 - Small ROMs suitable for link transfer (<192KB) can optionally be marked in the game list
 - PCEAdvance:
-  - ISO and TCD tracklist support for PC Engine CD-ROM support
+  - ISO and TCD tracklist support for PC Engine CD-ROM
   - Some sprite follow settings for PC Engine (those featured in gamelist.txt)
   - CD BIOS automatically added when an ISO image is added, and titled with the ISO name
 - Goomba:
