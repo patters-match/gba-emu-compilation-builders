@@ -19,34 +19,28 @@ You can drag and drop multiple file selections onto the shell window in which yo
 
 Each script has help information accessible via the ```-h``` command line option. For example:
 ```
-usage: smsadvance_compile.py [-h] [-s SPLASHSCREEN] [-b BIOS [BIOS ...]] [-bb] [-e EMUBINARY] [-m] [-o OUTPUTFILE] [-sav] [-pat]
-                             [romfile [romfile ...]]
+usage: pocketnes_compile.py [-h] [-s SPLASHSCREEN] [-e EMUBINARY] [-db DATABASE] [-dbn] [-m] [-c] [-o OUTPUTFILE] [-sav] [-pat] romfile [romfile ...]
 
-This script will assemble the SMSAdvance emulator and Master System/Game Gear/SG-1000 ROMs into a Gameboy Advance ROM image. It is
-recommended to type the script name, then drag and drop multiple ROM files onto the shell window, then add any additional arguments as
-needed.
+This script will assemble the PocketNES emulator and NES ROMs into a Gameboy Advance ROM image. It is recommended to type the script name, then drag and drop multiple
+ROM files onto the shell window, then add any additional arguments as needed.
 
 positional arguments:
-  romfile             .sms/.gg/.sg ROM image to add to compilation. Drag and drop multiple files onto your shell window.
+  romfile          .nes image to add to compilation. Drag and drop multiple files onto your shell window.
 
 optional arguments:
-  -h, --help          show this help message and exit
-  -s SPLASHSCREEN     76800 byte raw 240x160 15bit splashscreen image
-  -b BIOS [BIOS ...]  optional BIOS rom image(s). Since both a Master System and a Game Gear BIOS can be added, use this argument after
-                      specifying the game ROMs
-  -bb                 allow boot to BIOS-integrated games, via an '-- Empty --' romlist entry. Requires BIOS to be enabled in the
-                      SMSAdvance options, and System must be changed from Auto to Master System since it cannot be autodetected when
-                      there is no ROM
-  -e EMUBINARY        SMSAdvance binary, defaults to smsadvance.gba
-  -m                  mark small ROMs suitable for link transfer
-  -o OUTPUTFILE       compilation output filename, defaults to smsadv-compilation.gba
-  -sav                for EZ-Flash IV firmware 1.x - create a blank 64KB .sav file for the compilation, store in the SAVER folder, not
-                      needed for firmware 2.x which creates its own blank saves
-  -pat                for EZ-Flash IV firmware 2.x - create a .pat file for the compilation to force 64KB SRAM saves, store in the
-                      PATCH folder
+  -h, --help       show this help message and exit
+  -s SPLASHSCREEN  76800 byte raw 240x160 15bit splashscreen image
+  -e EMUBINARY     PocketNES binary, defaults to pocketnes.gba
+  -db DATABASE     PocketNES Menu Maker Database file which stores optimal flags and sprite follow settings for many games, defaults to pnesmmw.mdb
+  -dbn             use game titles from PocketNES Menu Maker Database
+  -m               mark small ROMs suitable for link transfer
+  -c               clean brackets from ROM titles
+  -o OUTPUTFILE    compilation output filename, defaults to pocketnes-compilation.gba
+  -sav             for EZ-Flash IV firmware 1.x - create a blank 64KB .sav file for the compilation, store in the SAVER folder, not needed for firmware 2.x which
+                   creates its own blank saves
+  -pat             for EZ-Flash IV firmware 2.x - create a .pat file for the compilation to force 64KB SRAM saves, store in the PATCH folder
 
 coded by patters in 2022
-
 ```
 
 ## Features
