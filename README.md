@@ -12,7 +12,7 @@ Python 3 builder scripts for the following emulators for Gameboy Advance, in dat
 - [Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases) enhanced Goomba Color fork for Gameboy / Gameboy Color (by Jaga, Nov 2021)
 
 ## Purpose
-The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since they are Python 3 scripts they will run on most contemporary platforms, unlike the original 32bit Windows binaries.
+The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since they are Python 3 scripts they will run on most contemporary platforms, unlike the original 32bit Windows GUI binaries.
 
 ## Usage
 You can drag and drop multiple file selections onto the shell window in which you are preparing the command line. Most options are not needed since they have sensible defaults. This makes these scripts well suited for building large compilations very easily. Usually the shell will alphabetically sort multiple file selections.
