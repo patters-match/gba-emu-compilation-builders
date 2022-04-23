@@ -161,7 +161,6 @@ if __name__ == "__main__":
 		romfilename = os.path.split(item.name)[1]
 		romtype = os.path.splitext(romfilename)[1]
 		if args.m:
-			print(os.path.getsize(item.name))
 			if os.path.getsize(item.name) <= 196608:
 				romtitle = "* " + os.path.splitext(romfilename)[0][:29]
 			else:
@@ -213,7 +212,7 @@ if __name__ == "__main__":
 		romheader = struct.pack(header_struct_format, EMUID, len(rom), flags, follow, biosflag, 0, 0, 0, romtitle.encode('ascii'), b"\0")
 		compilation = compilation + romheader + rom
 
-		print (romfilename)
+		print (romtitle)
 
 	writefile(args.outputfile, compilation)
 

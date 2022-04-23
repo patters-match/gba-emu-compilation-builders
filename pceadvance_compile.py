@@ -199,7 +199,7 @@ if __name__ == "__main__":
 			print("Error: unsupported filetype for compilation -", romfilename)
 			sys.exit(1)
 
-		print (romfilename)
+		print (romtitle)
 
 	#finished iterating rom list, append any CD-ROM data
 	if iso_count:

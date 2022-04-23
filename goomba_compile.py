@@ -115,7 +115,7 @@ if __name__ == "__main__":
 				rom = romarray
 
 			compilation = compilation + rom
-			print (romfilename)
+			print (romtitle)
 		else:
 			print("Error: unsupported filetype for compilation -", romfilename)
 			sys.exit(1)
