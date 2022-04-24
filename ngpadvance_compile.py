@@ -4,6 +4,7 @@ import sys, os.path, struct, argparse, bz2, base64
 from sys import argv
 
 EMUID = int(0x1A534D53) # "SMS",0x1A - probably unintentional
+EMU_HEADER = 64
 SRAM_SAVE = 65536
 
 default_outputfile = "ngpadv-compilation.gba"
@@ -126,10 +127,20 @@ if __name__ == "__main__":
 		flags = 0
 		follow = 0 # sprite or address follow for 'Unscaled (Auto)' display mode
 		bios = args.bios.read()
-		bios = bios + b"\0" * (len(bios)%4)
+		bios = bios + b"\0" * ((4 - (len(bios)%4))%4)
+
 		biosfilename = os.path.split(args.bios.name)[1]
 		biosheader = struct.pack(header_struct_format, EMUID, len(bios), flags, follow, biosflag, 0, 0, 0, biosfilename[:31].encode('ascii'), b"\0")
 		compilation = compilation + biosheader + bios
+
+		if args.bb:
+			biosflag = 0
+			flags = 0
+			follow = 0 # sprite or address follow for 'Unscaled (Auto)' display mode
+			empty = b"\xff" * 16384
+			emptyname = "-- Empty --"
+			emptyheader = struct.pack(header_struct_format, EMU_ID, len(empty), flags, follow, biosflag, 0, 0, 0, emptyname.encode('ascii'), b"\0")
+			compilation = compilation + emptyheader + empty
 
 	for item in args.romfile:
 
@@ -153,9 +164,8 @@ if __name__ == "__main__":
 			romtitle = romtitle.split(" (")[0] # strip the bracket parts of the name
 
 		romtitle = romtitle[:31]
-
 		rom = item.read()
-		rom = rom + b"\0" * (len(rom)%4)
+		rom = rom + b"\0" * ((4 - (len(rom)%4))%4)
 		romheader = struct.pack(header_struct_format, EMUID, len(rom), flags, follow, biosflag, 0, 0, 0, romtitle.encode('ascii'), b"\0")
 		compilation = compilation + romheader + rom
 

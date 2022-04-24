@@ -4,6 +4,7 @@ import sys, os.path, struct, argparse, bz2, base64
 from sys import argv
 
 EMUID = int(0x1A4C4F43) # "COL",0x1A - probably unintentional since Formats.txt incorrectly states it should be "MSX",0x1A
+EMU_HEADER = 64
 SRAM_SAVE = 65536
 
 default_outputfile = "msxadv-compilation.gba"
@@ -76,9 +77,9 @@ if __name__ == "__main__":
 	parser.add_argument(
 		'-b',
 		dest = 'bios',
-		help = "mandatory BIOS rom image, defaults to " + default_bios,
+		help = "mandatory BIOS rom image, defaults to " + localpath + default_bios,
 		type = argparse.FileType('rb'),
-		default = default_bios
+		default = localpath + default_bios
 	)
 	parser.add_argument(
 		'-bb',
@@ -88,9 +89,9 @@ if __name__ == "__main__":
 	parser.add_argument(
 		'-e', 
 		dest = 'emubinary',
-		help = "MSXAdvance binary, defaults to " + default_emubinary,
+		help = "MSXAdvance binary, defaults to " + localpath + default_emubinary,
 		type = argparse.FileType('rb'),
-		default = default_emubinary
+		default = localpath + default_emubinary
 	)
 	parser.add_argument(
 		'-m',
@@ -129,15 +130,23 @@ if __name__ == "__main__":
 	if args.splashscreen:
 		compilation = compilation + args.splashscreen.read()
 
-	if args.bios:
-		biosflag = 1
+	biosflag = 1
+	flags = 0
+	follow = 0 # sprite or address follow for 'Unscaled (Auto)' display mode
+	bios = args.bios.read()
+	bios = bios + b"\0" * ((4 - (len(bios)%4))%4)
+	biosfilename = os.path.split(args.bios.name)[1]
+	biosheader = struct.pack(header_struct_format, EMUID, len(bios), flags, follow, biosflag, 0, 0, 0, biosfilename[:31].encode('ascii'), b"\0")
+	compilation = compilation + biosheader + bios
+
+	if args.bb:
+		biosflag = 0
 		flags = 0
 		follow = 0 # sprite or address follow for 'Unscaled (Auto)' display mode
-		bios = args.bios.read()
-		bios = bios + b"\0" * (len(bios)%4)
-		biosfilename = os.path.split(args.bios.name)[1]
-		biosheader = struct.pack(header_struct_format, EMUID, len(bios), flags, follow, biosflag, 0, 0, 0, biosfilename[:31].encode('ascii'), b"\0")
-		compilation = compilation + biosheader + bios
+		empty = b"\xff" * 16384
+		emptyname = "-- Empty --"
+		emptyheader = struct.pack(header_struct_format, EMU_ID, len(empty), flags, follow, biosflag, 0, 0, 0, emptyname.encode('ascii'), b"\0")
+		compilation = compilation + emptyheader + empty
 
 	for item in args.romfile:
 
@@ -172,7 +181,7 @@ if __name__ == "__main__":
 
 
 		rom = item.read()
-		rom = rom + b"\0" * (len(rom)%4)
+		rom = rom + b"\0" * ((4 - (len(rom)%4))%4)
 		romheader = struct.pack(header_struct_format, EMUID, len(rom), flags, follow, biosflag, 0, 0, 0, romtitle.encode('ascii'), b"\0")
 		compilation = compilation + romheader + rom
 

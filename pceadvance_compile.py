@@ -4,6 +4,7 @@ import sys, os.path, struct, argparse #, bz2, base64
 from sys import argv
 
 EMUID = int(0x1A53454E) # "NES",0x1A - probably unintentional
+EMU_HEADER = 60
 SRAM_SAVE = 8192
 
 default_outputfile = "pceadv-compilation.gba"
@@ -142,7 +143,7 @@ if __name__ == "__main__":
 		# HuCard
 		if romtype.lower() == ".pce":
 			rom = item.read()
-			rom = rom + b"\0" * (len(rom)%4)
+			rom = rom + b"\0" * ((4 - (len(rom)%4))%4)
 
 			# USA ROMs need this specific flag - remember, most will need to be decrypted first using PCEToy
 			if "(U)" in romtitle or "(USA)" in romtitle:
@@ -183,8 +184,8 @@ if __name__ == "__main__":
 			# only a single CD-ROM image is supported per compilation
 			if iso_count == 0:
 				# first data track ISO needs a CD-ROM BIOS + optional TCD tracklist first
-				cdbios = readfile(cdrombios)
-				cdbios = cdbios + b"\0" * (len(cdbios)%4)
+				cdbios = readfile(args.cdrombios)
+				cdbios = cdbios + b"\0" * ((4 - (len(cdbios)%4))%4)
 	
 				if args.c:
 					romtitle = romtitle.split(" [")[0] # strip the square bracket parts of the name
