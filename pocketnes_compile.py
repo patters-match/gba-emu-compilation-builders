@@ -3,6 +3,8 @@
 import sys, os.path, struct, argparse, bz2, base64, zlib
 from sys import argv
 
+EMU_HEADER = 48
+NES_HEADER = 16
 SRAM_SAVE = 65536
 
 default_outputfile = "pocketnes-compilation.gba"
@@ -124,6 +126,10 @@ if __name__ == "__main__":
 
 	compilation = args.emubinary.read()
 
+	# ensure the first ROM's data is 256 byte aligned (after headers) for optimal performance
+	# https://github.com/Dwedit/PocketNES/issues/5
+	compilation = compilation + b"\0" * ((256 - ((len(compilation) + EMU_HEADER + NES_HEADER)%256))%256) 
+
 	if args.splashscreen:
 		compilation = compilation + args.splashscreen.read()
 
@@ -145,7 +151,7 @@ if __name__ == "__main__":
 
 				if rom[0:4] == b'NES\x1a':
 					#rom header is present, it needs to be removed to checksum only the rom data
-					romdata = rom[16:]
+					romdata = rom[NES_HEADER:]
 				else:
 					romdata = rom
 				crcstr = hex(zlib.crc32(romdata))
@@ -189,12 +195,14 @@ if __name__ == "__main__":
 
 			romtitle = romtitle[:31]
 
-
 		else:
 			print("Error: unsupported filetype for compilation -", romfilename)
 			sys.exit(1)
 
-		rom = rom + b"\0" * (len(rom)%4)
+		# align rom data (after headers) on 256 byte boundaries for optimal performance
+		# https://github.com/Dwedit/PocketNES/issues/5
+		rom = rom + b"\0" * ((256 - ((len(rom) + EMU_HEADER)%256))%256)
+
 		romheader = struct.pack(header_struct_format, romtitle.encode('ascii'), b"\0", len(rom), flags, follow, 0)
 		compilation = compilation + romheader + rom
 
