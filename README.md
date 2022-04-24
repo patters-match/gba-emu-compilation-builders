@@ -59,8 +59,8 @@ coded by patters in 2022
 - Drag and drop a selection of ROMs onto the shell window after typing the script name, to easily add multiple ROMs
 - Auto-detection of ROM types for emulators that support multiple types with specific header requirements
 - Region options and PAL timings are now auto-detected based on ROM naming
-- Blank SRAM save files of the appropriate size can now be created automatically using the ```-sav``` option
-- GSS patch files for EZ-Flash IV firmware 2.x (to force 64KB SRAM saves) can now be created automatically using the ```-pat``` option
+- Blank SRAM save file of the appropriate size can now be created automatically using the ```-sav``` option
+- GSS patch file for EZ-Flash IV firmware 2.x (to force 64KB SRAM saves) can now be created automatically using the ```-pat``` option
 - Patch file data is encoded within the script body - no external dependency
 - Splash screen support
 - Optional overrides of file paths
