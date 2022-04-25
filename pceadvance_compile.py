@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
-import sys, os.path, struct, argparse #, bz2, base64
+import sys, os.path, struct, argparse, bz2, base64
 from sys import argv
 
 EMUID = int(0x1A53454E) # "NES",0x1A - probably unintentional
 EMU_HEADER = 60
-SRAM_SAVE = 8192
+SRAM_SAVE = 65536 # not 8KB as advertised in readme.txt
 
 default_outputfile = "pceadv-compilation.gba"
 default_emubinary = "pceadvance.gba"
@@ -114,12 +114,11 @@ if __name__ == "__main__":
 		help = "for EZ-Flash IV firmware 1.x - create a blank 8KB .sav file for the compilation, store in the SAVER folder, not needed for firmware 2.x which creates its own blank saves",
 		action = 'store_true'
 	)
-#   not needed for PCEAdvance since it uses 8KB SRAM saves
-#	parser.add_argument(
-#		'-pat',
-#		help = "for EZ-Flash IV firmware 2.x - create a .pat file for the compilation to force 64KB SRAM saves, store in the PATCH folder",
-#		action = 'store_true'
-#	)
+	parser.add_argument(
+		'-pat',
+		help = "for EZ-Flash IV firmware 2.x - create a .pat file for the compilation to force 64KB SRAM saves, store in the PATCH folder",
+		action = 'store_true'
+	)
 
 	args = parser.parse_args()
 
@@ -220,18 +219,17 @@ if __name__ == "__main__":
 
 		print (romtitle)
 
-	#finished iterating rom list, append any CD-ROM data
+	# finished iterating rom list, append any CD-ROM data
 	if iso_count:
 		compilation = compilation + cdrom
 
 	writefile(args.outputfile, compilation)
 
-#   not needed for PCEAdvance since it uses 8KB SRAM saves
-#	if args.pat:
-#		# EZ-Flash IV fw2.x GSS patcher metadata to force 64KB SRAM saves - for PATCH folder on SD card
-#		patchname = os.path.splitext(args.outputfile)[0] + ".pat"
-#		patchdata = b'QlpoOTFBWSZTWRbvmZEAAAT44fyAgIAAEUAAAACIAAQAAAQESaAAVEIaaGRoxBKeqQD1GTJoks40324rSIskHSFhIywXzTCaqwSzf4exCBTgBk/i7kinChIC3fMyIA=='
-#		writefile(patchname, bz2.decompress(base64.b64decode(patchdata)))
+	if args.pat:
+		# EZ-Flash IV fw2.x GSS patcher metadata to force 64KB SRAM saves - for PATCH folder on SD card
+		patchname = os.path.splitext(args.outputfile)[0] + ".pat"
+		patchdata = b'QlpoOTFBWSZTWRbvmZEAAAT44fyAgIAAEUAAAACIAAQAAAQESaAAVEIaaGRoxBKeqQD1GTJoks40324rSIskHSFhIywXzTCaqwSzf4exCBTgBk/i7kinChIC3fMyIA=='
+		writefile(patchname, bz2.decompress(base64.b64decode(patchdata)))
 
 	if args.sav:
 		# EZ-Flash IV fw1.x blank save - for SAVER folder on SD card
