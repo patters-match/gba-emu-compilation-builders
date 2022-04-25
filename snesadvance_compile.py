@@ -495,7 +495,7 @@ if __name__ == "__main__":
 		flags2 = 0
 		autoscroll1 = 0
 		autoscroll2 = 0
-		sscale = 0
+		scale = 0
 		offset = 0
 		db_match = "  "
 
@@ -519,7 +519,7 @@ if __name__ == "__main__":
 			with open(args.database, "r", encoding='latin-1') as fh:
 				lines = fh.readlines()
 				for record in lines:
-					#CRC32|title|flags1|flags2|autoscroll1|autoscroll2|sscale|offset[|patches]
+					#CRC32|title|flags1|flags2|autoscroll1|autoscroll2|scale|offset[|patches]
 					if crcstr in record:
 						db_match = "db"
 						recorddata = record.split("|")
@@ -529,7 +529,7 @@ if __name__ == "__main__":
 						flags2 = int(recorddata[3],16)
 						autoscroll1 = int(recorddata[4],16)
 						autoscroll2 = int(recorddata[5],16)
-						sscale = int(recorddata[6],16)
+						scale = int(recorddata[6],16)
 						offset = int(recorddata[7].split("\n")[0],16) # remove any trailing newline char
 						if len(recorddata) > 8:
 							patches = recorddata[8].split(",")
@@ -552,7 +552,7 @@ if __name__ == "__main__":
 			sys.exit(1)
 
 		rom = rom + b"\0" * ((4 - (len(rom)%4))%4)
-		romheader = struct.pack(header_struct_format, romtitle.encode('latin-1'), b"\0", len(rom), int(crcstr,16), flags1, flags2, autoscroll1, autoscroll2, sscale, offset)
+		romheader = struct.pack(header_struct_format, romtitle.encode('latin-1'), b"\0", len(rom), int(crcstr,16), flags1, flags2, autoscroll1, autoscroll2, scale, offset)
 		compilation = compilation + romheader + rom
 
 		print (db_match, romtitle)
