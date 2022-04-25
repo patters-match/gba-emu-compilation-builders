@@ -80,7 +80,7 @@ coded by patters in 2022
   - can prefer game titles from PocketNES Menu Maker database
   - 256 byte alignment of all ROM data for optimum performance
 - SNESAdvance:
-  - [SuperDAT](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip) database is mandatory
+  - SuperDAT database is mandatory ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip))
   - can accept headered or unheadered ROMs (.smc/.sfc)
   - can prefer game titles from SuperDAT database
 
