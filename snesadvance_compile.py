@@ -5,7 +5,7 @@ from sys import argv
 
 EMU_HEADER = 64
 SNES_HEADER = 512
-#SRAM_SAVE = 65536
+SRAM_SAVE = 65536
 
 default_outputfile = "snesadv-compilation.gba"
 default_emubinary = "SNESAdvance.bin"
@@ -14,8 +14,8 @@ header_struct_format = "<31sc8I" # https://docs.python.org/3/library/struct.html
 
 # ROM header
 #
-# from gbadefs.h in the SNESAdvance source code and technotes.txt in the 'Package' binary distribution at:
-# https://web.archive.org/web/20080208234615/http://www.snesadvance.org/index.html
+# from gbadefs.h in the SNESAdvance source code and technotes.txt
+# https://web.archive.org/web/20080209182322/http://www.snesadvance.org/files/txt/technotes.txt
 #
 #typedef struct {
 #	char title[32];	//ROM title, null terminated
@@ -398,6 +398,7 @@ font_bin_lz77 = \
 font_pal = b'QlpoOTFBWSZTWZdPTegAAAjK+UABIAABAAgDwAQABEAAAgBABCAAIppoNNPakKYAA41xpEFCRJXxdyRThQkJdPTegA=='
 
 
+
 if __name__ == "__main__":
 
 	if os.path.dirname(argv[0]) and os.path.dirname(argv[0]) != ".":
@@ -406,7 +407,7 @@ if __name__ == "__main__":
 		localpath = ""
 
 	parser = argparse.ArgumentParser(
-		description="This script will assemble the SNESAdvance emulator and SNES ROMs into a Gameboy Advance ROM image. It is recommended to type the script name, then drag and drop multiple ROM files onto the shell window, then add any additional arguments as needed.",
+		description="This script will assemble the SNESAdvance emulator and SNES ROMs into a Gameboy Advance ROM image. It is recommended to type the script name, then drag and drop multiple ROM files onto the shell window, then add any additional arguments as needed. A SuperDAT file is required.",
 		epilog="coded by patters in 2022"
 	)
 
@@ -496,6 +497,7 @@ if __name__ == "__main__":
 		autoscroll2 = 0
 		sscale = 0
 		offset = 0
+		db_match = "  "
 
 		romfilename = os.path.split(item.name)[1]
 		romtype = os.path.splitext(romfilename)[1]
@@ -518,7 +520,8 @@ if __name__ == "__main__":
 				lines = fh.readlines()
 				for record in lines:
 					#CRC32|title|flags1|flags2|autoscroll1|autoscroll2|sscale|offset[|patches]
-					if(crcstr in record):
+					if crcstr in record:
+						db_match = "db"
 						recorddata = record.split("|")
 						if args.dbn:
 							romtitle = recorddata[1]
@@ -542,7 +545,7 @@ if __name__ == "__main__":
 				romtitle = romtitle.split(" [")[0] # strip the square bracket parts of the name
 				romtitle = romtitle.split(" (")[0] # strip the bracket parts of the name
 
-			romtitle = romtitle[:31].upper()
+			romtitle = romtitle[:31].upper() # font.bin is upper case only
 
 		else:
 			print("Error: unsupported filetype for compilation -", romfilename)
@@ -552,7 +555,7 @@ if __name__ == "__main__":
 		romheader = struct.pack(header_struct_format, romtitle.encode('latin-1'), b"\0", len(rom), int(crcstr,16), flags1, flags2, autoscroll1, autoscroll2, sscale, offset)
 		compilation = compilation + romheader + rom
 
-		print (romtitle)
+		print (db_match, romtitle)
 
 	writefile(args.outputfile, compilation)
 	print ()

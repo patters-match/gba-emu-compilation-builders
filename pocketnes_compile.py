@@ -137,6 +137,7 @@ if __name__ == "__main__":
 
 		flags = 0
 		follow = 0 # sprite or address follow for Unscaled (Auto) display mode
+		db_match = "  "
 
 		romfilename = os.path.split(item.name)[1]
 		romtype = os.path.splitext(romfilename)[1]
@@ -160,8 +161,11 @@ if __name__ == "__main__":
 				with open(args.database) as fh:
 					lines = fh.readlines()
 					for record in lines:
-						if(crcstr in record):
+						if crcstr in record:
+							db_match = "db"
 							recorddata = record.split("|")
+							if args.dbn:
+								romtitle = recorddata[1]
 							if len(recorddata) > 2:
 								if recorddata[2] != "\n":
 									flagrecord = recorddata[2]
@@ -176,8 +180,6 @@ if __name__ == "__main__":
 										followrecord = followrecord.split(" ")[0] # remove trailing comments
 									if followrecord:
 										follow = int(followrecord)
-							if args.dbn:
-								romtitle = recorddata[1]
 
 			else:
 				if "(E)" in romtitle or "(Europe)" in romtitle or "(EUR)" in romtitle:
@@ -207,7 +209,7 @@ if __name__ == "__main__":
 		romheader = struct.pack(header_struct_format, romtitle.encode('ascii'), b"\0", len(rom), flags, follow, 0)
 		compilation = compilation + romheader + rom
 
-		print (romtitle)
+		print (db_match, romtitle)
 
 	writefile(args.outputfile, compilation)
 
