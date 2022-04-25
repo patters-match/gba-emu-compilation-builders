@@ -12,6 +12,7 @@
 *.sms
 *.gg
 *.sg
+*.sfc
 
 # Logs and databases #
 ######################
