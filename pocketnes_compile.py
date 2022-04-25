@@ -89,7 +89,7 @@ if __name__ == "__main__":
 	)
 	parser.add_argument(
 		'-dbn',
-		help = "use game titles from PocketNES Menu Maker Database",
+		help = "use game titles from PocketNES Menu Maker database",
 		action = 'store_true'
 	)	
 	parser.add_argument(
