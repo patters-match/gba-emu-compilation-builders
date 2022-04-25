@@ -69,7 +69,7 @@ coded by patters in 2022
 - Optionally clean brackets from ROM titles
 - PCEAdvance:
   - ISO and TCD tracklist support for PC Engine CD-ROM
-  - Some sprite follow settings for PC Engine (those featured in gamelist.txt)
+  - Some sprite follow settings (those featured in gamelist.txt)
   - CD BIOS automatically added when an ISO image is added, and titled with the ISO name
 - Goomba:
   - works around an [EZ-Flash issue](https://www.dwedit.org/dwedit_board/viewtopic.php?id=643) where some ROMs would cause duplicate game list entries
