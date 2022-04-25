@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
 	parser.add_argument(
 		dest = 'romfile',
-		help = ".nes image to add to compilation. Drag and drop multiple files onto your shell window.",
+		help = ".nes ROM image to add to compilation. Drag and drop multiple files onto your shell window.",
 		type = argparse.FileType('rb'),
 		nargs = '+'
 	)
@@ -201,6 +201,7 @@ if __name__ == "__main__":
 
 		# align rom data (after headers) on 256 byte boundaries for optimal performance
 		# https://github.com/Dwedit/PocketNES/issues/5
+		# https://en.wikipedia.org/wiki/Data_structure_alignment
 		rom = rom + b"\0" * ((256 - ((len(rom) + EMU_HEADER)%256))%256)
 
 		romheader = struct.pack(header_struct_format, romtitle.encode('ascii'), b"\0", len(rom), flags, follow, 0)
