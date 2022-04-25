@@ -79,6 +79,10 @@ coded by patters in 2022
   - can lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal ROM settings, sprite/mem follow
   - can prefer game titles from PocketNES Menu Maker database
   - 256 byte alignment of all ROM data for optimum performance
+- SNESAdvance:
+  - SuperDAT database is mandatory
+  - can accept headered or unheadered ROMs (.smc/.sfc)
+  - can prefer game titles from SuperDAT database
 
 ## Automation
 With a simple for loop the scripts can also create a standalone executable for each game in a folder.
