@@ -78,7 +78,7 @@ coded by patters in 2022
   - CD BIOS automatically added when an ISO image is added, and titled with the ISO name
 - Goomba:
   - works around an [EZ-Flash issue](https://www.dwedit.org/dwedit_board/viewtopic.php?id=643) where some ROMs would cause duplicate game list entries
-  - optionally allows ROM filenames to replace the original ROM header names in the game list
+  - can prefer ROM filenames rather than original ROM game titles in the game list
 - PocketNES:
   - can lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal ROM settings, sprite/mem follow
   - can prefer game titles from PocketNES Menu Maker database
