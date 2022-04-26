@@ -113,7 +113,7 @@ With a simple for loop the scripts can also create a standalone executable for e
 #### MSXAdvance
 - the BIOS you need is "MSX System v1.0 + MSX BASIC (1983)(Microsoft)[MSX.ROM]"
 - R+Start to bring up the virtual keyboard
-- the emulator does not auto-select the correct mappper. You often need to change this (typically to Konami5) in Other Settings and restart the emulator for it to take effect
+- the emulator does not auto-select the correct mapper. You often need to change this (typically to Konami5) in Other Settings and restart the emulator for it to take effect
 - [compatibility list](https://web.archive.org/web/20070612060046/http://boards.pocketheaven.com/viewtopic.php?t=3768)
 - [versions 0.3 and 0.4 are broken](https://gbatemp.net/threads/msxadvance-compatibility-many-games-in-gamelist-txt-dont-work.609615/)
 #### PCEAdvance
