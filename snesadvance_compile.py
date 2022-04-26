@@ -460,6 +460,11 @@ if __name__ == "__main__":
 		help = "for EZ-Flash IV firmware 2.x - create a .pat file for the compilation to force 64KB SRAM saves, store in the PATCH folder",
 		action = 'store_true'
 	)
+	parser.add_argument(
+		'-strip',
+		help = "strip headered ROMs (.smc) and export as headerless (.sfc)",
+		action = 'store_true'
+	)
 	args = parser.parse_args()
 
 
@@ -510,6 +515,9 @@ if __name__ == "__main__":
 			if len(rom)%1024 == SNES_HEADER:
 				# rom header is present, it needs to be removed to checksum only the rom data
 				romdata = rom[SNES_HEADER:]
+				if args.strip:
+					if not os.path.exists(romtitle + ".sfc"):
+						writefile(romtitle + ".sfc", romdata)
 			else:
 				romdata = rom
 
