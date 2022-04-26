@@ -87,6 +87,7 @@ coded by patters in 2022
   - SuperDAT database is mandatory ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip), some additional supported titles [here](https://github.com/m45t3r/snes9x4d/blob/master/snesadvance.dat))
   - default graphics assets are encoded in the script, external skin files are ingested if present
   - can accept headered or unheadered ROMs (.smc/.sfc)
+  - can export header-stripped ROMs
   - can prefer game titles from SuperDAT database
 
 ## Automation
