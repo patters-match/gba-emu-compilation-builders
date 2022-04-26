@@ -530,6 +530,11 @@ if __name__ == "__main__":
 						autoscroll1 = int(recorddata[4],16)
 						autoscroll2 = int(recorddata[5],16)
 						scale = int(recorddata[6],16)
+
+						# the original SNESAdvance.exe builder applies some further undocumented scaling to this value
+						# https://github.com/patters-syno/gba-emu-compilation-builders/issues/1
+						scale = int((scale * 0x100) / 0x64)
+
 						offset = int(recorddata[7].split("\n")[0],16) # remove any trailing newline char
 						if len(recorddata) > 8:
 							patches = recorddata[8].split(",")
