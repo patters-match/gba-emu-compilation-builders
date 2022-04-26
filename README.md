@@ -1,7 +1,7 @@
 # GBA Emulator Compilation Build Scripts
 
 Python 3 builder scripts for the following emulators for Gameboy Advance, in date order of initial release:
-Emulator|Target System|Date|Author(s)
+:Emulator|:Target System|:Date|:Author(s)
 --------|-------------|----|---------
 [PocketNES](https://github.com/Dwedit/PocketNES/releases)|Nintendo NES|Loopy, later FluBBa, Dwedit|Jan 2001?
 [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|PC Engine|FluBBa|Apr 2003
@@ -12,7 +12,7 @@ Emulator|Target System|Date|Author(s)
 [Goomba Color](https://www.dwedit.org/gba/goombacolor.php)|a Goomba fork to add Gameboy Color|Dwedit|Jan 2006
 [MSXAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|MSX-1, version 0.2 is best|FluBBa|Mar 2006
 [NGPAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|Neo Geo Pocket / NGP Color|Flubba|Jul 2008
-[Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases)|enhanced Goomba Color fork for Gameboy / Gameboy Color|Jaga|Nov 2021
+[Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases)|enhanced Goomba Color fork|Jaga|Nov 2021
 
 ## Purpose
 The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since they are Python 3 scripts they will run on most contemporary platforms, unlike the original 32bit Windows GUI binaries.
