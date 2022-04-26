@@ -118,7 +118,7 @@ With a simple for loop the scripts can also create a standalone executable for e
 - [versions 0.3 and 0.4 are broken](https://gbatemp.net/threads/msxadvance-compatibility-many-games-in-gamelist-txt-dont-work.609615/)
 #### PCEAdvance
 - audio tends to work pretty well in mixer mode, but you do need to restart the emulator after enabling it
-- [CD-ROM ISO extracting](https://gbatemp.net/threads/pceadvance-cd-rom-support-howto-required.610542/
+- [CD-ROM ISO extracting](https://gbatemp.net/threads/pceadvance-cd-rom-support-howto-required.610542/)
 - [CD-ROM / Super CD-ROM titles list](https://gamicus.fandom.com/wiki/List_of_PC-Engine_CD-ROM²_video_games)
 #### SMSAdvance
 - BIOS booting (effectively a blank 16KB ROM image) requires the system type to be hard set to Master System, assuming Master System BIOS games, because without a ROM the emulator cannot guess which system BIOS (SMS or GG) should be loaded
