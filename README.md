@@ -92,7 +92,7 @@ coded by patters in 2022
   - can export header-stripped ROMs
   - can prefer game titles from SuperDAT database
 
-
+---
 ## Automation
 With a simple for loop the scripts can also create a standalone executable for each game in a folder.
 
