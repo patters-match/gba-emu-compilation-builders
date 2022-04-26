@@ -67,7 +67,7 @@ coded by patters in 2022
   - Splash screen support
   - Optional overrides of file paths
   - Can clean brackets from ROM titles
-- Most scripts:
+- Many scripts (as applicable):
   - Auto-detection of ROM types for emulators that support multiple types with specific header requirements
   - Region options and PAL timings are now auto-detected based on ROM naming
   - Boot-to-BIOS support
