@@ -3,10 +3,10 @@
 Python 3 builder scripts for the following emulators for Gameboy Advance, in date order of initial release:
 Emulator|Target System|Date|Author(s)
 --------|-------------|----|---------
-[PocketNES](https://github.com/Dwedit/PocketNES/releases)|Nintendo NES|Jan 2001?|Loopy, later FluBBa, Dwedit)
-[PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for PC Engine (by FluBBa, Apr 2003)
-- [Goomba](http://goomba.webpersona.com) for Nintendo Gameboy (by FluBBa, Oct 2003)
-- [SNESAdvance](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/index.html) for Nintendo SNES (by Loopy, FluBBa, Feb 2005)
+[PocketNES](https://github.com/Dwedit/PocketNES/releases)|Nintendo NES|Loopy, later FluBBa, Dwedit|Jan 2001?
+[PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|PC Engine|FluBBa|Apr 2003
+[Goomba](http://goomba.webpersona.com)|Nintendo Gameboy|FluBBa|Oct 2003
+[SNESAdvance](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/index.html)|Nintendo SNES|Loopy, FluBBa|Feb 2005
 - [SMSAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for SEGA Master System, Game Gear, SG-1000 (by FluBBa, Jul 2005)
 - [Cologne](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for ColecoVision (by FluBBa, Jan 2006)
 - [Goomba Color](https://www.dwedit.org/gba/goombacolor.php) a Goomba fork to add Gameboy Color (by Dwedit, Jan 2006)
