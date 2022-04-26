@@ -59,17 +59,19 @@ coded by patters in 2022
 ```
 
 ## Features
-- Drag and drop a selection of ROMs onto the shell window after typing the script name, to easily add multiple ROMs
-- Auto-detection of ROM types for emulators that support multiple types with specific header requirements
-- Region options and PAL timings are now auto-detected based on ROM naming
-- Blank SRAM save file of the appropriate size can now be created automatically using the ```-sav``` option
-- GSS patch file for EZ-Flash IV firmware 2.x (to force 64KB SRAM saves) can now be created automatically using the ```-pat``` option
-- Patch file data is encoded within the script body - no external dependency
-- Splash screen support
-- Optional overrides of file paths
-- Boot-to-BIOS support
-- Small ROMs suitable for link transfer (<192KB) can be marked in the game list
-- Optionally clean brackets from ROM titles
+- All scripts:
+  - Drag and drop a selection of ROMs onto the shell window after typing the script name, to easily add multiple ROMs
+  - Blank SRAM save file of the appropriate size can now be created automatically using the ```-sav``` option
+  - GSS patch file for EZ-Flash IV firmware 2.x (to force 64KB SRAM saves) can now be created automatically using the ```-pat``` option
+  - Patch file data is encoded within the script body - no external dependency
+  - Splash screen support
+  - Optional overrides of file paths
+  - Can clean brackets from ROM titles
+- Most scripts:
+  - Auto-detection of ROM types for emulators that support multiple types with specific header requirements
+  - Region options and PAL timings are now auto-detected based on ROM naming
+  - Boot-to-BIOS support
+  - Small ROMs suitable for link transfer (<192KB) can be marked in the game list
 - PCEAdvance:
   - ISO and TCD tracklist support for PC Engine CD-ROM
   - Some sprite follow settings (those featured in gamelist.txt)
