@@ -1,7 +1,7 @@
 # GBA Emulator Compilation Build Scripts
 
-Python 3 builder scripts for the following emulators for Gameboy Advance, in date order of initial release:
-Emulator|Target System|Author(s)|Date
+Python 3 builder scripts for the following emulators for Gameboy Advance:
+Emulator|Target System|Author(s)|Released
 :-------|:------------|:--------|:---
 [PocketNES](https://github.com/Dwedit/PocketNES/releases)|Nintendo NES|Loopy, later FluBBa, Dwedit|Jan 2001?
 [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|NEC PC Engine|FluBBa|Apr 2003
@@ -83,6 +83,7 @@ coded by patters in 2022
   - 256 byte alignment of all ROM data for optimum performance
 - SNESAdvance:
   - SuperDAT database is mandatory ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip))
+  - default skin is encoded in script, external skin files are ingested is present
   - can accept headered or unheadered ROMs (.smc/.sfc)
   - can prefer game titles from SuperDAT database
 
