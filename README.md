@@ -15,8 +15,10 @@ Emulator|Target System|Author(s)|Released
 [Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases)|enhanced Goomba Color fork|Jaga|Nov 2021
 
 
+
 ## Purpose
 The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since the scripts are written in Python 3 they will run on most present-day platforms, helping to preserve these technical marvels.
+
 
 
 ## Usage
@@ -61,6 +63,7 @@ coded by patters in 2022
 ```
 
 
+
 ## Features
 - All scripts:
   - Drag and drop a selection of ROMs onto the shell window after typing the script name, to easily add multiple ROMs
@@ -94,6 +97,7 @@ coded by patters in 2022
   - can prefer game titles from SuperDAT database
 
 
+
 ## Automation
 With a simple for loop the scripts can also create a standalone executable for each game in a folder.
 
@@ -104,6 +108,7 @@ With a simple for loop the scripts can also create a standalone executable for e
 **Windows**:
 
 ```for %f in (*.pce *.iso) do @pceadvance_compile.py "%f" -o "%~nf.gba"```
+
 
 
 ## Emulator Tips
