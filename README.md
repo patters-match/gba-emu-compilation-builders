@@ -33,8 +33,8 @@ drop multiple ROM files onto the shell window, then add any additional
 arguments as needed.
 
 positional arguments:
-  romfile          .nes image to add to compilation. Drag and drop multiple
-                   files onto your shell window.
+  romfile          .nes ROM image to add to compilation. Drag and drop
+                   multiple files onto your shell window.
 
 optional arguments:
   -h, --help       show this help message and exit
@@ -43,7 +43,7 @@ optional arguments:
   -db DATABASE     PocketNES Menu Maker Database file which stores optimal
                    flags and sprite follow settings for many games, defaults
                    to pnesmmw.mdb
-  -dbn             use game titles from PocketNES Menu Maker Database
+  -dbn             use game titles from PocketNES Menu Maker database
   -m               mark small ROMs suitable for link transfer
   -c               clean brackets from ROM titles
   -o OUTPUTFILE    compilation output filename, defaults to pocketnes-
