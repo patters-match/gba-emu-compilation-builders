@@ -7,12 +7,12 @@ Emulator|Target System|Date|Author(s)
 [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|PC Engine|FluBBa|Apr 2003
 [Goomba](http://goomba.webpersona.com)|Nintendo Gameboy|FluBBa|Oct 2003
 [SNESAdvance](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/index.html)|Nintendo SNES|Loopy, FluBBa|Feb 2005
-- [SMSAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for SEGA Master System, Game Gear, SG-1000 (by FluBBa, Jul 2005)
-- [Cologne](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for ColecoVision (by FluBBa, Jan 2006)
-- [Goomba Color](https://www.dwedit.org/gba/goombacolor.php) a Goomba fork to add Gameboy Color (by Dwedit, Jan 2006)
-- [MSXAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for MSX-1 (by FluBBa, Mar 2006 - v0.2 is best)
-- [NGPAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for Neo Geo Pocket / NGP Color (by Flubba, Jul 2008)
-- [Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases) enhanced Goomba Color fork for Gameboy / Gameboy Color (by Jaga, Nov 2021)
+[SMSAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|SEGA Master System, Game Gear, SG-1000|FluBBa|Jul 2005
+[Cologne](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|ColecoVision|FluBBa|Jan 2006
+[Goomba Color](https://www.dwedit.org/gba/goombacolor.php)|a Goomba fork to add Gameboy Color|Dwedit|Jan 2006
+[MSXAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|MSX-1, version 0.2 is best|FluBBa|Mar 2006
+[NGPAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|Neo Geo Pocket / NGP Color|Flubba|Jul 2008
+[Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases)|enhanced Goomba Color fork for Gameboy / Gameboy Color|Jaga|Nov 2021
 
 ## Purpose
 The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since they are Python 3 scripts they will run on most contemporary platforms, unlike the original 32bit Windows GUI binaries.
