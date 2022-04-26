@@ -15,7 +15,7 @@ Emulator|Target System|Author(s)|Date
 [Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases)|enhanced Goomba Color fork|Jaga|Nov 2021
 
 ## Purpose
-The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since they are written in Python 3 they will run on most present day platforms, helping to preserve these technical marvels.
+The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since they are written in Python 3 they will run on most present-day platforms, helping to preserve these technical marvels.
 
 ## Usage
 You can drag and drop multiple file selections onto the shell window in which you are preparing the command line. Most options are not needed since they have sensible defaults. This makes these scripts well suited for building large compilations very easily. Usually the shell will alphabetically sort multiple file selections.
