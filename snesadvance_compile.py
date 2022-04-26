@@ -563,9 +563,10 @@ if __name__ == "__main__":
 		print (db_match, romtitle)
 
 	writefile(args.outputfile, compilation)
-	print ()
-	print ("press Start+Select+A+B for the emulator menu")
-	print ("press Select+Up/Down to change screen offset")
+	if len(args.romfile) > 1:
+		print ()
+		print ("press Start+Select+A+B for the emulator menu")
+		print ("press Select+Up/Down to change screen offset")
 
 	if args.pat:
 		# EZ-Flash IV fw2.x GSS patcher metadata to force 64KB SRAM saves - for PATCH folder on SD card
