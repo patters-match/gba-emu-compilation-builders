@@ -123,6 +123,6 @@ With a simple for loop the scripts can also create a standalone executable for e
 - BIOS booting (effectively a blank 16KB ROM image) requires the system type to be hard set to Master System, assuming Master System BIOS games, because without a ROM the emulator cannot guess which system BIOS (SMS or GG) should be loaded
 - Lock top two rows is a full screen display mode useful for certain Master System games, such as Outrun, which keeps the speedometer on screen despite cropping the image to the GBA resolution
 #### SNESAdvance
-- press Start+Select+A+B for the emulator menu
-- press Select+Up/Down to change screen offset
+- Start+Select+A+B for the emulator menu
+- Select+Up/Down to change screen offset
 - [list of best functioning games](https://web.archive.org/web/20050305113636/http://ygodm.tonsite.biz/snesadv/snesadv_gamelist.html)
