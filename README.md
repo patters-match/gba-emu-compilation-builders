@@ -104,7 +104,7 @@ With a simple for loop the scripts can also create a standalone executable for e
 
 ```for %f in (*.pce *.iso) do @pceadvance_compile.py "%f" -o "%~nf.gba"```
 
-
+---
 ## Emulator Tips
 #### Cologne
 - find the BIOS rom with the no-delay patch to speed up the boot time: "ColecoVision BIOS (1982) (No Title Delay Hack)"
