@@ -114,9 +114,15 @@ if __name__ == "__main__":
 
 			if args.f:
 				outputtitle = romtitle[:titlelength]
+				pad = b""
+				if len(outputtitle) == 15:
+					# if we overwrite all 15 bytes, the last 4 will be interpreted as a GAME_ID by the emulator
+					outputtitle = romtitle[:titlelength-1]
+					pad = b"\0"
 				outputtitle = outputtitle.split(" [")[0] # strip the square bracket parts of the name (not many chars available)
 				outputtitle = outputtitle.split(" (")[0] # strip the bracket parts of the name (not many chars available)
-				headername = struct.pack(str(titlelength) + "s",outputtitle.encode('ascii'))
+				outputtitlebytes = outputtitle.encode('ascii') + pad
+				headername = struct.pack(str(titlelength) + "s",outputtitlebytes)
 				romarray = bytearray(rom)
 				romarray[308:308+titlelength] = headername
 				rom = romarray
