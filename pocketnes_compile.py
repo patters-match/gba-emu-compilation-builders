@@ -148,10 +148,10 @@ if __name__ == "__main__":
 			rom = item.read()
 
 			if os.path.exists(args.database):
-				#use PocketNES Menu Maker database metadata for the roms, if the database is present
+				# use PocketNES Menu Maker database metadata for the roms, if the database is present
 
 				if rom[0:4] == b'NES\x1a':
-					#rom header is present, it needs to be removed to checksum only the rom data
+					# rom header is present, it needs to be removed to checksum only the rom data
 					romdata = rom[NES_HEADER:]
 				else:
 					romdata = rom

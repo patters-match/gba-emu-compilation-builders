@@ -508,7 +508,7 @@ if __name__ == "__main__":
 			rom = item.read()
 
 			if len(rom)%1024 == SNES_HEADER:
-				#rom header is present, it needs to be removed to checksum only the rom data
+				# rom header is present, it needs to be removed to checksum only the rom data
 				romdata = rom[SNES_HEADER:]
 			else:
 				romdata = rom
@@ -519,7 +519,7 @@ if __name__ == "__main__":
 			with open(args.database, "r", encoding='latin-1') as fh:
 				lines = fh.readlines()
 				for record in lines:
-					#CRC32|title|flags1|flags2|autoscroll1|autoscroll2|scale|offset[|patches]
+					# CRC32|title|flags1|flags2|autoscroll1|autoscroll2|scale|offset[|patches]
 					if crcstr in record:
 						db_match = "db"
 						recorddata = record.split("|")
