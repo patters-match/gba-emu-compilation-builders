@@ -122,6 +122,7 @@ With a simple for loop the scripts can also create a standalone executable for e
 - [CD-ROM / Super CD-ROM titles list](https://gamicus.fandom.com/wiki/List_of_PC-Engine_CD-ROM²_video_games)
 #### SMSAdvance
 - BIOS booting (effectively a blank 16KB ROM image) requires the system type to be hard set to Master System, assuming Master System BIOS games, because without a ROM the emulator cannot guess which system BIOS (SMS or GG) should be loaded
+- Lock top two rows is a full screen display mode useful for certain Master System games, such as Outrun, which keeps the speedometer on screen despite cropping the image to the GBA resolution
 #### SNESAdvance
 - press Start+Select+A+B for the emulator menu
 - press Select+Up/Down to change screen offset
