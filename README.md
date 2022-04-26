@@ -83,7 +83,7 @@ coded by patters in 2022
   - 256 byte alignment of all ROM data for optimum performance
 - SNESAdvance:
   - SuperDAT database is mandatory ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip))
-  - default skin graphics assets are encoded in the script, external skin files are ingested is present
+  - default skin graphics assets are encoded in the script, external skin files are ingested if present
   - can accept headered or unheadered ROMs (.smc/.sfc)
   - can prefer game titles from SuperDAT database
 
