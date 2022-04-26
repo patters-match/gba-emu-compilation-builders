@@ -82,7 +82,7 @@ coded by patters in 2022
 - PocketNES:
   - can lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal ROM settings, sprite/mem follow
   - can prefer game titles from PocketNES Menu Maker database
-  - 256 byte alignment of all ROM data for optimum performance
+  - 256 byte alignment of all ROM data for [optimum performance](https://github.com/Dwedit/PocketNES/issues/5#issuecomment-1107541215)
 - SNESAdvance:
   - SuperDAT database is mandatory ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip), some additional supported titles [here](https://github.com/m45t3r/snes9x4d/blob/master/snesadvance.dat))
   - default graphics assets are encoded in the script, external skin files are ingested if present
