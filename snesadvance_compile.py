@@ -531,7 +531,7 @@ if __name__ == "__main__":
 						autoscroll2 = int(recorddata[5],16)
 						scale = int(recorddata[6],16)
 
-						# the original SNESAdvance.exe builder applies some further undocumented scaling to this value
+						# the original SNESAdvance.exe builder further transforms this value before writing it to the header (undocumented)
 						# https://github.com/patters-syno/gba-emu-compilation-builders/issues/1
 						scale = int((scale * 0x100) / 0x64)
 
