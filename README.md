@@ -1,8 +1,10 @@
 # GBA Emulator Compilation Build Scripts
 
 Python 3 builder scripts for the following emulators for Gameboy Advance, in date order of initial release:
-- [PocketNES](https://github.com/Dwedit/PocketNES/releases) for Nintendo NES (by Loopy, Jan 2001?, later FluBBa, Dwedit)
-- [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for PC Engine (by FluBBa, Apr 2003)
+Emulator|Target System|Date|Author(s)
+--------|-------------|----|---------
+[PocketNES](https://github.com/Dwedit/PocketNES/releases)|Nintendo NES|Jan 2001?|Loopy, later FluBBa, Dwedit)
+[PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for PC Engine (by FluBBa, Apr 2003)
 - [Goomba](http://goomba.webpersona.com) for Nintendo Gameboy (by FluBBa, Oct 2003)
 - [SNESAdvance](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/index.html) for Nintendo SNES (by Loopy, FluBBa, Feb 2005)
 - [SMSAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html) for SEGA Master System, Game Gear, SG-1000 (by FluBBa, Jul 2005)
