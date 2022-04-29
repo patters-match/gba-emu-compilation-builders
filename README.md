@@ -76,13 +76,13 @@ coded by patters in 2022
   - Small ROMs suitable for link transfer (<192KB) can be marked in the game list
 - PCEAdvance:
   - ISO and TCD tracklist support for PC Engine CD-ROM
-  - Some sprite follow settings (those featured in gamelist.txt)
+  - Some sprite follow settings for "Unscaled (Auto)" display mode (those featured in gamelist.txt)
   - CD BIOS automatically added when an ISO image is added, and titled with the ISO name
 - Goomba:
   - works around an [EZ-Flash issue](https://www.dwedit.org/dwedit_board/viewtopic.php?id=643) where some ROMs would cause duplicate game list entries
   - can prefer ROM filenames rather than original ROM game titles in the game list
 - PocketNES:
-  - can lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal ROM settings, sprite/mem follow
+  - can lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal game settings, sprite/mem follow for "Unscaled (Follow)" display mode 
   - can prefer game titles from PocketNES Menu Maker database
   - 256 byte alignment of all ROM data for [optimum performance](https://github.com/Dwedit/PocketNES/issues/5#issuecomment-1107541215)
 - SNESAdvance:
