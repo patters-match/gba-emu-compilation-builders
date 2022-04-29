@@ -1,7 +1,5 @@
 # GBA Emulator Compilation Build Scripts
 
-![photo of GBA Micro running PC Engine R-Type](gba2.jpg?raw=true)
-
 Python 3 builder scripts for the following emulators for Gameboy Advance:
 Emulator|Target System|Author(s)|Released
 :-------|:------------|:--------|:---
