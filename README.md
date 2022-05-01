@@ -83,7 +83,7 @@ coded by patters in 2022
   - Works around an [EZ-Flash issue](https://www.dwedit.org/dwedit_board/viewtopic.php?id=643) where some ROMs would cause duplicate game list entries
   - Can prefer ROM filenames rather than original ROM game titles in the game list
 - PocketNES:
-  - Can lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal game settings, sprite/mem follow for "Unscaled (Follow)" display mode 
+  - Can lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal game settings, sprite/memory follow for "Unscaled (Follow)" display mode 
   - Can prefer game titles from PocketNES Menu Maker database
   - 256 byte alignment of all ROM data for [optimum performance](https://github.com/Dwedit/PocketNES/issues/5#issuecomment-1107541215)
 - SNESAdvance:
