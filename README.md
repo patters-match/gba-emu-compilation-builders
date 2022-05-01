@@ -80,18 +80,18 @@ coded by patters in 2022
   - Some sprite follow settings for "Unscaled (Auto)" display mode (those featured in gamelist.txt)
   - CD BIOS automatically added when an ISO image is added, and titled with the ISO name
 - Goomba:
-  - works around an [EZ-Flash issue](https://www.dwedit.org/dwedit_board/viewtopic.php?id=643) where some ROMs would cause duplicate game list entries
-  - can prefer ROM filenames rather than original ROM game titles in the game list
+  - Works around an [EZ-Flash issue](https://www.dwedit.org/dwedit_board/viewtopic.php?id=643) where some ROMs would cause duplicate game list entries
+  - Can prefer ROM filenames rather than original ROM game titles in the game list
 - PocketNES:
-  - can lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal game settings, sprite/mem follow for "Unscaled (Follow)" display mode 
-  - can prefer game titles from PocketNES Menu Maker database
+  - Can lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal game settings, sprite/mem follow for "Unscaled (Follow)" display mode 
+  - Can prefer game titles from PocketNES Menu Maker database
   - 256 byte alignment of all ROM data for [optimum performance](https://github.com/Dwedit/PocketNES/issues/5#issuecomment-1107541215)
 - SNESAdvance:
   - SuperDAT database is mandatory ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip), some additional supported titles [here](https://github.com/m45t3r/snes9x4d/blob/master/snesadvance.dat))
-  - default graphics assets are encoded in the script, external skin files are ingested if present
-  - can accept headered or unheadered ROMs (.smc/.sfc)
-  - can export header-stripped ROMs
-  - can prefer game titles from SuperDAT database
+  - Default graphics assets are encoded in the script, external skin files are ingested if present
+  - Can accept headered or unheadered ROMs (.smc/.sfc)
+  - Can export header-stripped ROMs
+  - Can prefer game titles from SuperDAT database
 
 
 ## Automation
