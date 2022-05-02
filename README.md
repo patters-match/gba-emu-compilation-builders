@@ -108,16 +108,16 @@ With a simple for loop the scripts can also create a standalone executable for e
 ---
 ## Emulator Tips
 #### Cologne
-- find the BIOS rom with the no-delay patch to speed up the boot time: "ColecoVision BIOS (1982) (No Title Delay Hack)"
+- Find the BIOS rom with the no-delay patch to speed up the boot time: "ColecoVision BIOS (1982) (No Title Delay Hack)"
 - R+Start to bring up the virtual controller keypad
 #### MSXAdvance
-- the BIOS you need is "MSX System v1.0 + MSX BASIC (1983)(Microsoft)[MSX.ROM]"
+- The BIOS you need is "MSX System v1.0 + MSX BASIC (1983)(Microsoft)[MSX.ROM]"
 - R+Start to bring up the virtual keyboard
-- the emulator does not auto-select the correct mapper. You often need to change this (typically to Konami5) in Other Settings and restart the emulator for it to take effect
-- [compatibility list](https://web.archive.org/web/20070612060046/http://boards.pocketheaven.com/viewtopic.php?t=3768)
-- versions 0.3 and 0.4 [are broken](https://gbatemp.net/threads/msxadvance-compatibility-many-games-in-gamelist-txt-dont-work.609615/)
+- The emulator does not auto-select the correct mapper. You often need to change this (typically to Konami5) in Other Settings and restart the emulator for it to take effect
+- [Compatibility list](https://web.archive.org/web/20070612060046/http://boards.pocketheaven.com/viewtopic.php?t=3768)
+- Versions 0.3 and 0.4 [are broken](https://gbatemp.net/threads/msxadvance-compatibility-many-games-in-gamelist-txt-dont-work.609615/)
 #### PCEAdvance
-- audio tends to work pretty well in mixer mode, but you do need to restart the emulator after enabling it
+- Audio tends to work pretty well in mixer mode, but you do need to restart the emulator after enabling it
 - [CD-ROM ISO extracting guide](https://gbatemp.net/threads/pceadvance-cd-rom-support-howto-required.610542/)
 - [CD-ROM / Super CD-ROM titles list](https://gamicus.fandom.com/wiki/List_of_PC-Engine_CD-ROM²_video_games)
 #### SMSAdvance
@@ -126,4 +126,4 @@ With a simple for loop the scripts can also create a standalone executable for e
 #### SNESAdvance
 - Start+Select+A+B for the emulator menu
 - Select+Up/Down to change screen offset
-- [list of best functioning games](https://web.archive.org/web/20050305113636/http://ygodm.tonsite.biz/snesadv/snesadv_gamelist.html)
+- [List of best functioning games](https://web.archive.org/web/20050305113636/http://ygodm.tonsite.biz/snesadv/snesadv_gamelist.html)
