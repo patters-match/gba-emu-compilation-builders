@@ -13,9 +13,6 @@ anchor = b"SMEMMAP0"
 iwramstart = b".IWRAMSTART"
 iwramend = b".IWRAMEND"
 
-#def tohex(val,nbits):
-#	return (val + (1 << nbits)) % (1 << nbits)
-
 def NOP(v):
 	return 0x00000000
 
@@ -46,8 +43,6 @@ def SVEC(v):
 def _set(x,v):
 	global memorymap
 	result = (v(x * 0x2000) - (x * 0x2000)) & 0xFFFFFFFF
-#	if result < 0:
-#		result = tohex(result,32)
 	memorymap = memorymap + struct.pack("<I", int(result))
 
 def _map(s,e,m0,m1,m2,m3,m4,m5,m6,m7):
@@ -94,9 +89,6 @@ def formmemorymap(loRom, romSize):
 	
 	memorymap = memorymap + struct.pack("<2I", sramSizeBytes - 1, 0x8000000 + snesRomPosition)
 
-
-#def int_to_signed_short(value):
-#    return -(value & 0x8000) | (value & 0x7FFF)
 
 def checksum(input):
     s = 0
