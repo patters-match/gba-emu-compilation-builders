@@ -9,7 +9,6 @@ SRAM_SAVE = 65536
 default_emubinary = "snezzi.gba"
 default_database = "snezzi.dat"
 
-memorymap = b""
 anchor = b"SMEMMAP0"
 iwramstart = b".IWRAMSTART"
 iwramend = b".IWRAMEND"
@@ -191,6 +190,8 @@ if __name__ == "__main__":
 	)
 	args = parser.parse_args()
 
+	emubinary =	args.emubinary.read()
+
 	for item in args.romfile:
 
 		db_match = "  "
@@ -220,7 +221,7 @@ if __name__ == "__main__":
 			crcstr = hex(zlib.crc32(romdata))
 			crcstr = str(crcstr)[2:].upper()
 
-			emulator = bytearray(args.emubinary.read())
+			emulator = bytearray(emubinary)
 			emuSize = len(emulator)
 			emuSize = int((emuSize + 4096) / 4096) * 4096
 
@@ -316,7 +317,8 @@ if __name__ == "__main__":
 									print(hex(address), "=", payload)
 							rom = romarray
 
-			# write memory map to the emulator core
+			# form memory map and write it to the emulator core
+			memorymap = b""
 			formmemorymap(loROM,romSize)
 			emulator[anchorfound+8:anchorfound+8+len(memorymap)] = memorymap
 			
