@@ -11,6 +11,7 @@ Emulator|Target System|Author(s)|Released
 [Cologne](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|ColecoVision|FluBBa|Jan 2006
 [Goomba Color](https://www.dwedit.org/gba/goombacolor.php)|a Goomba fork to add Gameboy Color|Dwedit|Jan 2006
 [MSXAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|MSX-1 (*version 0.2 is most compatible*)|FluBBa|Mar 2006
+[Snezziboy](https://sourceforge.net/projects/snezziboy/files/snezziboy%20%28binaries%2Bsource%29/v0.26/)|Nintendo SNES|bubble2k|May 2006
 [NGPAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|SNK Neo Geo Pocket / NGP Color|Flubba|Jul 2008
 [Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases)|enhanced Goomba Color fork|Jaga|Nov 2021
 
@@ -93,6 +94,12 @@ coded by patters in 2022
   - Can accept headered or unheadered ROMs (.smc/.sfc)
   - Can export header-stripped ROMs
   - Can prefer game titles from SuperDAT database
+- Snezziboy:
+  - Quite complex, it builds a large SNES memory map lookup table in the ```.gba``` rom data. Fortunately I was able to port the C source code over to Python 3, because it wouldn't compile on macOS.
+  - Dat file database is mandatory (snezzi.dat), but can use SNESAdvance SuperDAT also 
+  - Can accept headered or unheadered ROMs (.smc/.sfc)
+  - Can export header-stripped ROMs
+  - Verbose mode, to mimic original snezzi.exe builder
 
 
 ## Automation
@@ -128,3 +135,7 @@ With a simple for loop the scripts can also create a standalone executable for e
 - Start+Select+A+B for the emulator menu
 - Select+Up/Down to change screen offset
 - [List of best functioning games](https://web.archive.org/web/20050305113636/http://ygodm.tonsite.biz/snesadv/snesadv_gamelist.html)
+#### Snezziboy
+- L+R+Start for the emulator menu
+- L+R+Select+Up to cycle BG Priority Sets
+- L+R+Select+Down to cycle Forced BG Modes
