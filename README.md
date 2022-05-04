@@ -95,7 +95,7 @@ coded by patters in 2022
   - Can export header-stripped ROMs
   - Can prefer game titles from SuperDAT database
 - Snezziboy:
-  - Each game must be bundled with its own emulator ```.gba``` file, multiple games can be specified
+  - Each game must be bundled with its own emulator instance, though multiple games can be processed in one command line
   - Dat file database is mandatory (snezzi.dat), but can use SNESAdvance SuperDAT also 
   - Can accept headered or unheadered ROMs (.smc/.sfc)
   - Can export header-stripped ROMs
