@@ -95,7 +95,6 @@ coded by patters in 2022
   - Can export header-stripped ROMs
   - Can prefer game titles from SuperDAT database
 - Snezziboy:
-  - Quite complex, it builds a large SNES memory map lookup table in the ```.gba``` rom data. Fortunately I was able to port the C source code over to Python 3, because it wouldn't compile on macOS.
   - Dat file database is mandatory (snezzi.dat), but can use SNESAdvance SuperDAT also 
   - Can accept headered or unheadered ROMs (.smc/.sfc)
   - Can export header-stripped ROMs
