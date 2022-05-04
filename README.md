@@ -21,6 +21,8 @@ The scripts combine the emulator binary with the game ROMs and their required me
 
 
 ## Usage
+```git clone https://github.com/patters-syno/gba-emu-compilation-builders```
+
 You can drag and drop multiple file selections onto the shell window in which you are preparing the command line. Most options are not needed since they have sensible defaults. This makes these scripts well suited for building large compilations very easily. Usually the shell will alphabetically sort multiple file selections.
 
 Each script has help information accessible via the ```-h``` command line option. For example:
