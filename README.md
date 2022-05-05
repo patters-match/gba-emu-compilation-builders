@@ -141,3 +141,4 @@ With a simple for loop the scripts can also create a standalone executable for e
 - L+R+Start for the emulator menu
 - L+R+Select+Up to cycle BG Priority Sets
 - L+R+Select+Down to cycle Forced BG Modes
+- [Compatibility list](https://web.archive.org/web/20090508192702/http://wiki.pocketheaven.com/Snezziboy_Compatibility_List)
