@@ -138,7 +138,6 @@ With a simple for loop the scripts can also create a standalone executable for e
 - Select+Up/Down to change screen offset
 - [List of best functioning games](https://web.archive.org/web/20050305113636/http://ygodm.tonsite.biz/snesadv/snesadv_gamelist.html)
 #### Snezziboy
-- Probably has the edge over SNESAdvance because it has screen scaling, and you can adjust the graphics settings on the fly to overcome some rendering issues mid-game
 - L+R+Start for the emulator menu
 - L+R+Select+Up to cycle BG Priority Sets
 - L+R+Select+Down to cycle Forced BG Modes
