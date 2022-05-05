@@ -98,7 +98,7 @@ coded by patters in 2022
   - Can prefer game titles from SuperDAT database
 - Snezziboy:
   - Each game must be bundled with its own emulator instance, though multiple games can be processed in one command line
-  - Dat file database is mandatory (snezzi.dat), but can use SNESAdvance SuperDAT also 
+  - Dat file database is mandatory ([snezzi.dat](https://web.archive.org/web/20090430142302/wiki.pocketheaven.com/Snezzi_dat)), but can use SNESAdvance SuperDAT also ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip), some additional supported titles [here](https://github.com/m45t3r/snes9x4d/blob/master/snesadvance.dat))
   - Can accept headered or unheadered ROMs (.smc/.sfc)
   - Can export header-stripped ROMs
   - Verbose mode, to mimic original snezzi.exe builder
