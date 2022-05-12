@@ -182,7 +182,7 @@ if __name__ == "__main__":
 	)
 	args = parser.parse_args()
 
-	emubinary =	args.emubinary.read()
+	emubinary = args.emubinary.read()
 
 	for item in args.romfile:
 
