@@ -105,7 +105,7 @@ coded by patters in 2022
 
 
 ## Automation
-With a simple for loop the scripts can also create a standalone executable for each game in a folder.
+With a simple FOR loop the scripts can also create a standalone executable for each game in a folder.
 
 **Bash**:
 
