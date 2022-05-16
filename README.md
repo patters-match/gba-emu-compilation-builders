@@ -115,6 +115,8 @@ With a simple FOR loop the scripts can also create a standalone executable for e
 
 ```for %f in (*.pce *.iso) do @pceadvance_compile.py "%f" -o "%~nf.gba"```
 
+If you own an EZ-Flash IV flashcart my curated collection of [exit-patched emulator binaries](https://github.com/patters-syno/gba-ezflash-iv-emulators) will be of interest.
+
 ---
 ## Emulator Tips
 #### Cologne
