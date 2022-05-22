@@ -130,9 +130,8 @@ If you own an EZ-Flash IV flashcart my curated collection of [exit-patched emula
 - Versions 0.3 and 0.4 [are broken](https://gbatemp.net/threads/msxadvance-compatibility-many-games-in-gamelist-txt-dont-work.609615/)
 #### PCEAdvance
 - Audio tends to work pretty well in mixer mode, but you do need to restart the emulator after enabling it
-- [CD-ROM ISO extracting guide](https://gbatemp.net/threads/pceadvance-cd-rom-support-howto-required.610542/)
-- [CD-ROM² / Super CD-ROM² titles list](https://gamicus.fandom.com/wiki/List_of_PC-Engine_CD-ROM²_video_games)
-- [Arcade CD-ROM² titles list](https://atariage.com/forums/topic/123757-pc-engine-arcade-card-games/)
+- [CD-ROM ISO extracting info](https://gbatemp.net/threads/pceadvance-cd-rom-support-howto-required.610542/)
+- [CD-ROM² / Super CD-ROM² / Arcade CD-ROM² titles lists, and TOCs](https://www.necstasy.net/)
 - [Speedhacks howto](https://web.archive.org/web/20060508083011/http://boards.pocketheaven.com/viewtopic.php?t=27)
 #### SMSAdvance
 - BIOS booting (effectively a blank 16KB ROM image) requires the system type to be hard set to Master System, assuming Master System BIOS games, because without a ROM the emulator cannot guess which system BIOS (SMS or GG) should be loaded
