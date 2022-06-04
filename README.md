@@ -17,7 +17,7 @@ Emulator|Target System|Author(s)|Released
 
 
 ## Purpose
-The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since the scripts are written in Python 3 they will run on most present-day platforms, helping to preserve these technical marvels.
+The scripts combine the emulator binary with the game ROMs and their required metadata into a ```.gba``` executable for Gameboy Advance. Since the scripts are written in Python 3 they will run on most present-day platforms, helping to preserve these technical marvels. If you have an EZ-Flash IV flash cart then take a look at my collection of [exit-patched emulators](https://github.com/patters-syno/gba-ezflash-iv-emulators)
 
 
 ## Usage
