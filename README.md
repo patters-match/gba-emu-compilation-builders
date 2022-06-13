@@ -1,7 +1,7 @@
 # GBA Emulator Compilation Build Scripts
 
 Python 3 builder scripts for the following emulators for Gameboy Advance:
-Emulator|Target System|Author(s)|Released
+Emulator|Target System|Author(s)|1st Release
 :-------|:------------|:--------|:---
 [PocketNES](https://github.com/Dwedit/PocketNES/releases)|Nintendo NES|Loopy, later FluBBa, Dwedit|Jan 2001?
 [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|NEC PC Engine / Super CD-ROM²|FluBBa|Apr 2003
@@ -13,7 +13,7 @@ Emulator|Target System|Author(s)|Released
 [MSXAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|MSX-1 *(version 0.2 is most compatible)*|FluBBa|Mar 2006
 [Snezziboy](https://sourceforge.net/projects/snezziboy/files/snezziboy%20%28binaries%2Bsource%29/v0.26/)|Nintendo SNES|bubble2k|May 2006
 [NGPAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|SNK Neo Geo Pocket / NGP Color|Flubba|Jul 2008
-[Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases)|An enhanced Goomba Color fork|Jaga|Nov 2021
+[Jagoomba](https://github.com/EvilJagaGenius/jagoombacolor/releases)|An enhanced Goomba Color fork|Jaga + various|Nov 2021
 
 
 ## Purpose
