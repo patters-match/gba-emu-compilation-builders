@@ -51,8 +51,7 @@ def set_bit(value, n):
 
 def detectmapper(data):
 	size = len(data)
-	crcstr = hex(zlib.crc32(data))
-	if int(crcstr,16) == 0xa884911c:
+	if zlib.crc32(data) == 0xa884911c:
 		return 'RTYPE'
 	if size < 0x10000:
 		if (size <= 0x4000) and (data[0] == b'A') and (data[1] == b'B'):
@@ -93,13 +92,10 @@ def detectmapper(data):
 				value = struct.unpack("<H", data[i + 1:i + 3])[0]
 				if value == 0x5000 or value == 0x9000 or value == 0xb000:
 					typeGuess['KONAMI5'] += 1
-
 				elif value == 0x4000 or value == 0x8000 or value == 0xa000:
 					typeGuess['KONAMI4'] += 1
-
 				elif value == 0x6800 or value == 0x7800:
 					typeGuess['ASCII8'] += 1
-
 				elif value == 0x6000:
 					typeGuess['KONAMI4'] += 1
 					typeGuess['ASCII8'] += 1
