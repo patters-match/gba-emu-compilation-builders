@@ -78,11 +78,13 @@ coded by patters in 2022
   - Region options and PAL timings are now auto-detected based on ROM naming
   - Boot-to-BIOS support
   - Small ROMs suitable for link transfer (<192KB) can be marked in the game list
+- MSXAdvance:
+  - Detects appropriate mapper for added ROMs
 - PCEAdvance:
-  - ISO and TCD tracklist support for PC Engine CD-ROM
+  - ISO and TCD tracklist support for PC Engine CD-ROM²
   - Some sprite follow settings for "Unscaled (Auto)" display mode (those featured in gamelist.txt)
   - CD BIOS automatically added when an ISO image is added, and titled with the ISO name
-  - Can trim compilation to fit within 16MB PSRAM with ```-trim``` option (needed for certain Super CD-ROM titles)
+  - Can trim compilation to fit within 16MB PSRAM with ```-trim``` option (needed for certain CD-ROM² titles)
 - Goomba:
   - Works around an [EZ-Flash issue](https://www.dwedit.org/dwedit_board/viewtopic.php?id=643) where some ROMs would cause duplicate game list entries
   - Can prefer ROM filenames rather than original ROM game titles in the game list
