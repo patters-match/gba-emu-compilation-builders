@@ -80,6 +80,7 @@ coded by patters in 2022
   - Small ROMs suitable for link transfer (<192KB) can be marked in the game list
 - MSXAdvance:
   - Detects appropriate mapper for added ROMs and records this in a previously unused byte in the header
+  - Use [my new fork of MSXAdvance v0.2](https://github.com/patters-syno/msxadvance) which adds auto mapper selection
 - PCEAdvance:
   - ISO and TCD tracklist support for PC Engine CD-ROM²
   - Some sprite follow settings for "Unscaled (Auto)" display mode (those featured in gamelist.txt)
@@ -127,8 +128,8 @@ If you own an EZ-Flash IV flashcart my curated collection of [exit-patched emula
 #### MSXAdvance
 - The BIOS you need is "MSX System v1.0 + MSX BASIC (1983)(Microsoft)[MSX.ROM]"
 - R+Start to bring up the virtual keyboard
-- The emulator does not auto-select the correct mapper. You often need to change this (typically to Konami5) in Other Settings and restart the emulator for it to take effect
-- [Compatibility list](https://web.archive.org/web/20070612060046/http://boards.pocketheaven.com/viewtopic.php?t=3768)
+- Use [my new fork of MSXAdvance v0.2](https://github.com/patters-syno/msxadvance) which adds auto mapper selection
+- An early [compatibility list](https://web.archive.org/web/20070612060046/http://boards.pocketheaven.com/viewtopic.php?t=3768)
 - Versions 0.3 and 0.4 [are broken](https://gbatemp.net/threads/msxadvance-compatibility-many-games-in-gamelist-txt-dont-work.609615/)
 #### PCEAdvance
 - Audio tends to work pretty well in mixer mode, but you do need to restart the emulator after enabling it
