@@ -79,7 +79,7 @@ coded by patters in 2022
   - Boot-to-BIOS support
   - Small ROMs suitable for link transfer (<192KB) can be marked in the game list
 - MSXAdvance:
-  - Detects appropriate mapper for added ROMs and records this in a previously unused byte in the header
+  - Detects appropriate mapper for added ROMs and records this in a previously unused byte in the header, can opt out using ```-nomap``` option
   - Use [my new fork of MSXAdvance v0.2](https://github.com/patters-syno/msxadvance) which adds auto mapper selection
 - PCEAdvance:
   - ISO and TCD tracklist support for PC Engine CD-ROM²
