@@ -67,8 +67,8 @@ coded by patters in 2022
 - All scripts:
   - ```-h``` for help
   - Drag and drop a selection of ROMs onto the shell window after typing the script name, to easily add multiple ROMs
-  - Blank SRAM save file of the appropriate size can now be created automatically using the ```-sav``` option
-  - GSS patch file for EZ-Flash IV firmware 2.x (to force 64KB SRAM saves) can now be created automatically using the ```-pat``` option
+  - Blank SRAM save file of the appropriate size can now be created automatically using ```-sav``` option
+  - GSS patch file for EZ-Flash IV firmware 2.x (to force 64KB SRAM saves) can now be created automatically using ```-pat``` option
   - Patch file data is encoded within the script body - no external dependency
   - Splash screen support
   - Optional overrides of file paths
