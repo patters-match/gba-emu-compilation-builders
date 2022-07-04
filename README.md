@@ -70,9 +70,9 @@ coded by patters in 2022
   - Blank SRAM save file of the appropriate size can now be created automatically using ```-sav``` option
   - GSS patch file for EZ-Flash IV firmware 2.x (to force 64KB SRAM saves) can now be created automatically using ```-pat``` option
   - Patch file data is encoded within the script body - no external dependency
-  - Splash screen support
+  - Splash screen support with ```-s``` option
   - Optional overrides of file paths
-  - Can clean brackets from ROM titles
+  - Can clean brackets from ROM titles with ```-c``` option
 - Some scripts (as applicable):
   - Auto-detection of ROM types for emulators that support multiple types with specific header requirements
   - Region options and PAL timings are now auto-detected based on ROM naming
@@ -97,14 +97,14 @@ coded by patters in 2022
   - SuperDAT database is mandatory ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip), some additional supported titles [here](https://github.com/m45t3r/snes9x4d/blob/master/snesadvance.dat))
   - Default graphics assets are encoded in the script, external skin files are ingested if present
   - Can accept headered or unheadered ROMs (.smc/.sfc)
-  - Can export header-stripped ROMs
-  - Can prefer game titles from SuperDAT database
+  - Can export header-stripped ROMs with ```-strip``` option
+  - Can prefer game titles from SuperDAT database with ```-dbn``` option
 - Snezziboy:
   - Each game must be bundled with its own emulator instance, though multiple games can be processed in one command line
   - Dat file database is mandatory ([snezzi.dat](https://web.archive.org/web/20090430142302/wiki.pocketheaven.com/Snezzi_dat)), but can use SNESAdvance SuperDAT also ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip), some additional supported titles [here](https://github.com/m45t3r/snes9x4d/blob/master/snesadvance.dat))
   - Can accept headered or unheadered ROMs (.smc/.sfc)
-  - Can export header-stripped ROMs
-  - Verbose mode, to mimic original snezzi.exe builder
+  - Can export header-stripped ROMs with ```-strip``` option
+  - Verbose mode, to mimic original snezzi.exe builder with ```-v``` option
 
 
 ## Automation
