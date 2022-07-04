@@ -76,8 +76,8 @@ coded by patters in 2022
 - Some scripts (as applicable):
   - Auto-detection of ROM types for emulators that support multiple types with specific header requirements
   - Region options and PAL timings are now auto-detected based on ROM naming
-  - Boot-to-BIOS support
-  - Small ROMs suitable for link transfer (<192KB) can be marked in the game list
+  - Boot-to-BIOS support with ```-bb``` option
+  - Small ROMs suitable for link transfer (<192KB) can be marked in the game list with ```-m``` option
 - MSXAdvance:
   - Detects appropriate mapper for added ROMs and records this in a previously unused byte in the header, can opt out using ```-nomap``` option
   - Use [my new fork of MSXAdvance v0.2](https://github.com/patters-syno/msxadvance) which adds auto mapper selection
