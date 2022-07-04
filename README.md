@@ -90,8 +90,8 @@ coded by patters in 2022
   - Works around an [EZ-Flash issue](https://www.dwedit.org/dwedit_board/viewtopic.php?id=643) where some ROMs would cause duplicate game list entries
   - Can prefer ROM filenames rather than original ROM game titles in the game list
 - PocketNES:
-  - Can lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal game settings, sprite/memory follow for "Unscaled (Follow)" display mode 
-  - Can prefer game titles from PocketNES Menu Maker database
+  - Will lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal game settings, sprite/memory follow for "Unscaled (Follow)" display mode 
+  - Can prefer game titles from PocketNES Menu Maker database with ```-dbn``` option
   - 256 byte alignment of all ROM data for [optimum performance](https://github.com/Dwedit/PocketNES/issues/5#issuecomment-1107541215)
 - SNESAdvance:
   - SuperDAT database is mandatory ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip), some additional supported titles [here](https://github.com/m45t3r/snes9x4d/blob/master/snesadvance.dat))
@@ -99,6 +99,7 @@ coded by patters in 2022
   - Can accept headered or unheadered ROMs (.smc/.sfc)
   - Can export header-stripped ROMs with ```-strip``` option
   - Can prefer game titles from SuperDAT database with ```-dbn``` option
+  - Verbose mode with ```-v``` option
 - Snezziboy:
   - Each game must be bundled with its own emulator instance, though multiple games can be processed in one command line
   - Dat file database is mandatory ([snezzi.dat](https://web.archive.org/web/20090430142302/wiki.pocketheaven.com/Snezzi_dat)), but can use SNESAdvance SuperDAT also ([snesadvance.dat](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/files/superdat20060124-mog123.zip), some additional supported titles [here](https://github.com/m45t3r/snes9x4d/blob/master/snesadvance.dat))
