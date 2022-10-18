@@ -7,7 +7,7 @@ EMU_ID = int(0x1A50474E) # "NGP",0x1A
 EMU_HEADER = 64
 SRAM_SAVE = 65536
 
-default_outputfile = "ngpadv-compilation.gba"
+default_outputfile = "ngpgba-compilation.gba"
 default_emubinary = "NGPGBA.gba"
 header_struct_format = "<8I31sc" # https://docs.python.org/3/library/struct.html
 
