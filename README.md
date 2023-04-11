@@ -6,6 +6,7 @@ Emulator|Target System|Author(s)|1st Release
 [PocketNES](https://github.com/Dwedit/PocketNES/releases)|Nintendo NES|Loopy, later FluBBa, Dwedit|Jan 2001?
 [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|NEC PC Engine / Super CD-ROM²|FluBBa|Apr 2003
 [Goomba](http://goomba.webpersona.com)|Nintendo Gameboy|FluBBa|Oct 2003
+[HVCA](https://www.gamebrew.org/wiki/HVCA_GBA)|Nintendo NES / Famicom Disk System|outside-agb|Sep 2004
 [Wasabi](https://github.com/FluBBaOfWard/WasabiGBA)|Watara Supervision|FluBBa|Nov 2004
 [SNESAdvance](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/index.html)|Nintendo SNES|Loopy, FluBBa|Feb 2005
 [SMSAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|SEGA Master System / Game Gear / SG-1000|FluBBa|Jul 2005
@@ -107,6 +108,8 @@ coded by patters in 2022
   - Can accept headered or unheadered ROMs (.smc/.sfc)
   - Can export header-stripped ROMs with ```-strip``` option
   - Verbose mode, to mimic original snezzi.exe builder with ```-v``` option
+- HVCA:
+  - Reconstructs FDS ROM headers if they are missing, which HVCA requires
 
 
 ## Automation
