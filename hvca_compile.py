@@ -37,7 +37,7 @@ def writefile(name, contents):
 		if name == default_outputfile:
 			print("...wrote", name)	
 
-def appendfile(file):
+def appendfile(file, verbose):
 	global compilation
 	filename = os.path.split(file.name)[1]
 	name = os.path.splitext(filename)[0]
@@ -60,7 +60,8 @@ def appendfile(file):
 	contents = contents + b"\0" * ((4 - (len(contents)%4))%4) # 4 byte alignment
 	fileheader = struct.pack(header_struct_format, EMU_ID, name.encode('ascii'), b"\0", ext.encode('ascii'), b"\0", size)
 	compilation = compilation + fileheader + contents
-	print (name + "." + ext)
+	if verbose:
+		print (name + "." + ext)
 
 
 #def get_bit(value, n):
@@ -117,6 +118,12 @@ if __name__ == "__main__":
 		help = "flashcart-specific .sub exit subroutine",
 		type = argparse.FileType('rb'),
 	)
+	parser.add_argument(
+		'-v',
+		help = "verbose ouput, similar to the original hvcamkfs.exe build tool",
+		action = 'store_true'
+	)
+
 	# don't use FileType('wb') here because it writes a zero-byte file even if it doesn't parse the arguments correctly
 	parser.add_argument(
 		'-o',
@@ -143,23 +150,24 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 	compilation = readfile(args.emubinpath + os.path.sep + "base.bin")
-	print ("base.bin")
+	if args.v:
+		print ("base.bin")
 
 	searchpath = args.emubinpath + os.path.sep + "font*.raw"
 	for fontfile in sorted(glob.glob(searchpath)):
 		with open(fontfile, "rb") as fonthandle:
-			appendfile(fonthandle)
+			appendfile(fonthandle, args.v)
 
 	searchpath = args.emubinpath + os.path.sep + "mapr" + os.path.sep + "*.bin"
 	for maprfile in sorted(glob.glob(searchpath)):
 		with open(maprfile, "rb") as maprhandle:
-			appendfile(maprhandle)
+			appendfile(maprhandle, args.v)
 
 	if args.exitsub:
-		appendfile(args.exitsub)
+		appendfile(args.exitsub, args.v)
 
 	if args.palette:
-		appendfile(args.palette)
+		appendfile(args.palette, args.v)
 
 	fdsfiles, nesfiles, nsffiles, cfgfiles =([], [], [], [])
 
@@ -180,16 +188,16 @@ if __name__ == "__main__":
 			sys.exit(1)
 
 	if fdsfiles:
-		appendfile(args.bios)
+		appendfile(args.bios, args.v)
 
 	for item in fdsfiles:
-		appendfile(item)
+		appendfile(item, True)
 	for item in nesfiles:
-		appendfile(item)
+		appendfile(item, True)
 	for item in nsffiles:
-		appendfile(item)
+		appendfile(item, True)
 	for item in cfgfiles:
-		appendfile(item)
+		appendfile(item, True)
 
 	# this does not appear to be needed, but it's here for complete consistency with the behaviour of merge.bat's use of the hvcamkfs -c option:
 	#  -c   Add END-MAGIC-NUM (FCA compatible)
