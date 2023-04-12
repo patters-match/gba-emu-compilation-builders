@@ -110,7 +110,7 @@ coded by patters in 2022
   - Verbose mode, to mimic original snezzi.exe builder with ```-v``` option
 - HVCA:
   - Reconstructs FDS ROM headers if they are missing, which HVCA requires
-  - .cfg files should be renamed to match the filename of the game they target
+  - A .cfg filename must match the filename of the game it targets
 
 
 ## Automation
