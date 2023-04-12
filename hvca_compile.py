@@ -44,7 +44,7 @@ def appendfile(file, verbose):
 	name = name[:31]
 	ext = os.path.splitext(filename)[1].strip(".")
 	ext = ext[:3]
-	if ext.lower() == "nes" or ext.lower() == "fds" or ext.lower() == "nsf":
+	if ext.lower() == "nes" or ext.lower() == "fds" or ext.lower() == "nsf" or ext.lower() == "cfg":
 		if args.c:
 			name = name.split(" [")[0] # strip the square bracket parts of the name
 			name = name.split(" (")[0] # strip the bracket parts of the name
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
 	parser.add_argument(
 		dest = 'romfile',
-		help = ".nes/.fds/.nsf/.cfg files to add to the compilation. Drag and drop multiple files onto your shell window.",
+		help = ".nes/.fds/.nsf/.cfg files to add to the compilation. Drag and drop multiple files onto your shell window. Ensure you rename a .cfg file to precisely the filename of the game it targets.",
 		type = argparse.FileType('rb'),
 		nargs = '+'
 	)
