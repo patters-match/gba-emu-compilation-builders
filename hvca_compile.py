@@ -61,7 +61,7 @@ def appendfile(file, verbose):
 	fileheader = struct.pack(header_struct_format, EMU_ID, name.encode('ascii'), b"\0", ext.encode('ascii'), b"\0", size)
 	compilation = compilation + fileheader + contents
 	if verbose:
-		print (name + "." + ext)
+		print('{:<32}{}'.format(name,ext))
 
 
 #def get_bit(value, n):
@@ -151,7 +151,7 @@ if __name__ == "__main__":
 
 	compilation = readfile(args.emubinpath + os.path.sep + "base.bin")
 	if args.v:
-		print ("base.bin")
+		print('{:<32}{}'.format("base","bin"))
 
 	searchpath = args.emubinpath + os.path.sep + "font*.raw"
 	for fontfile in sorted(glob.glob(searchpath)):
