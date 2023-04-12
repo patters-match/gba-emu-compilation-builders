@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
 	parser.add_argument(
 		dest = 'romfile',
-		help = ".nes/.fds/.nsf/.cfg files to add to the compilation. Drag and drop multiple files onto your shell window. Ensure you rename a .cfg file to precisely the filename of the game it targets.",
+		help = ".nes/.fds/.nsf/.cfg files to add to the compilation. Drag and drop multiple files onto your shell window. A .cfg filename must match the filename of the game it targets.",
 		type = argparse.FileType('rb'),
 		nargs = '+'
 	)
