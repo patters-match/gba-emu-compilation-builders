@@ -167,7 +167,7 @@ if __name__ == "__main__":
 		romheader = struct.pack(header_struct_format, EMU_ID, len(rom), flags, follow, biosflag, 0, 0, 0, romtitle.encode('ascii'), b"\0")
 		compilation = compilation + romheader + rom
 
-		print (romtitle)
+		print('{:<32}{}'.format(romtitle,romtype.strip(".")))
 
 	writefile(args.outputfile, compilation)
 
