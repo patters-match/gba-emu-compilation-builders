@@ -199,7 +199,7 @@ if __name__ == "__main__":
 	for item in cfgfiles:
 		appendfile(item, True)
 
-	# this does not appear to be needed, but it's here for complete consistency with the behaviour of merge.bat's use of the hvcamkfs -c option:
+	# this does not appear to be needed, but it's here for consistency with merge.bat's use of the hvcamkfs -c option:
 	#  -c   Add END-MAGIC-NUM (FCA compatible)
 	compilation = compilation + EMU_END_MARKER.to_bytes(4, byteorder='little') + b"\0" * 40
 
