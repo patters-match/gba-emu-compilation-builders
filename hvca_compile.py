@@ -113,7 +113,7 @@ if __name__ == "__main__":
 		type = argparse.FileType('rb'),
 	)
 	parser.add_argument(
-		'-ex',
+		'-x',
 		dest = 'exitsub',
 		help = "flashcart-specific .sub exit subroutine",
 		type = argparse.FileType('rb'),
