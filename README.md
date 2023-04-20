@@ -72,10 +72,10 @@ coded by patters in 2022
   - Blank SRAM save file of the appropriate size can now be created automatically using ```-sav``` option
   - GSS patch file for EZ-Flash IV firmware 2.x (to force 64KB SRAM saves) can now be created automatically using ```-pat``` option
   - Patch file data is encoded within the script body - no external dependency
-  - Splash screen support with ```-s``` option
   - Optional overrides of file paths
   - Can clean brackets from ROM titles with ```-c``` option
 - Some scripts (as applicable):
+  - Splash screen support with ```-s``` option
   - Auto-detection of ROM types for emulators that support multiple types with specific header requirements
   - Region options and PAL timings are now auto-detected based on ROM naming
   - Boot-to-BIOS support with ```-bb``` option
