@@ -157,5 +157,5 @@ If you own an EZ-Flash IV flashcart my curated collection of [exit-patched emula
 - [Wiki page](https://web.archive.org/web/20090503124323/http://wiki.pocketheaven.com/Snezziboy)
 - [Compatibility list](https://web.archive.org/web/20090508192702/http://wiki.pocketheaven.com/Snezziboy_Compatibility_List)
 #### HVCA:
-- Select \<EXIT Emulation\> in the menu and then hold L+R to actually exit back to the flashcart menu (A will only restart the emulator)
+- Hold L+R in the menu to exit back to the flashcart menu
 - This requires the ```-x``` builder option to add a .sub file containing exit code for specific flashcart models. My own [hacked flash_ez4.sub](https://gbatemp.net/threads/multi-platform-builder-scripts-for-gba-emulators.611219/post-10138443) is included in this repo.
