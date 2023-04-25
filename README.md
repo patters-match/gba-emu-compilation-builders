@@ -156,3 +156,6 @@ If you own an EZ-Flash IV flashcart my curated collection of [exit-patched emula
 - L+R+Select+Down to cycle Forced BG Modes
 - [Wiki page](https://web.archive.org/web/20090503124323/http://wiki.pocketheaven.com/Snezziboy)
 - [Compatibility list](https://web.archive.org/web/20090508192702/http://wiki.pocketheaven.com/Snezziboy_Compatibility_List)
+#### HVCA:
+- Select <EXIT Emulation> and then Hold L+R to actually exit back to the flashcart menu
+- This requires the ```-x``` builder option to add a .sub file containing exit code for specific flashcarts
