@@ -18,7 +18,7 @@ mov   r0, #0x1500
 ldr   r1, [pc, #0x2c]        @ 6th .BYTE
 strh  r0, [r1]               @ 0x9fc0000 = 0x1500
 mov   r0, #0
-mov   r1, #0x4000000         @ 0x9fc0000 = 0x1500
+mov   r1, #0x4000000
 strh  r0, [r1, #-6]          @ 0x3fffffa = 0x0000
 mov   r0, #0xfc
 svc   #0x10000
