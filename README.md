@@ -111,7 +111,6 @@ coded by patters in 2022
   - Verbose mode, to mimic original snezzi.exe builder with ```-v``` option
 - HVCA:
   - Reconstructs FDS ROM headers if they are missing, which HVCA requires
-  - A .cfg filename must match the filename of the game it targets
 - ZXAdvance:
   - On first run use the ```-e``` builder option to extract the emulator from the .exe file, will accept v1.0.1 or v1.0.1a
   - Will retrieve game-specific controls configurations from ZXA.INI 
@@ -160,5 +159,6 @@ If you own an EZ-Flash IV flashcart my curated collection of [exit-patched emula
 - [Wiki page](https://web.archive.org/web/20090503124323/http://wiki.pocketheaven.com/Snezziboy)
 - [Compatibility list](https://web.archive.org/web/20090508192702/http://wiki.pocketheaven.com/Snezziboy_Compatibility_List)
 #### HVCA:
+- A .cfg filename must match the filename of the game it targets
 - Hold L+R in the menu to exit back to the flashcart menu
 - This requires the ```-x``` builder option to add a .sub file containing exit code for specific flashcart models. My own [hacked flash_ez4.sub](https://gbatemp.net/threads/multi-platform-builder-scripts-for-gba-emulators.611219/post-10138443) is included in this repo.
