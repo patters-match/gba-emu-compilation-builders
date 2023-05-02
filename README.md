@@ -4,6 +4,7 @@ Python 3 builder scripts for the following emulators for Gameboy Advance:
 Emulator|Target System|Author(s)|1st Release
 :-------|:------------|:--------|:---
 [PocketNES](https://github.com/Dwedit/PocketNES/releases)|Nintendo NES|Loopy, later FluBBa, Dwedit|Jan 2001?
+[ZXAdvance](https://www.gamebrew.org/wiki/ZXAdvance_GBA)|Sinclair ZX Spectrum|TheHiVE|May 2001
 [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|NEC PC Engine / Super CD-ROM²|FluBBa|Apr 2003
 [Goomba](http://goomba.webpersona.com)|Nintendo Gameboy|FluBBa|Oct 2003
 [HVCA](https://www.gamebrew.org/wiki/HVCA_GBA)|Nintendo NES / Famicom Disk System|outside-agb?|Sep 2004
@@ -159,3 +160,5 @@ If you own an EZ-Flash IV flashcart my curated collection of [exit-patched emula
 #### HVCA:
 - Hold L+R in the menu to exit back to the flashcart menu
 - This requires the ```-x``` builder option to add a .sub file containing exit code for specific flashcart models. My own [hacked flash_ez4.sub](https://gbatemp.net/threads/multi-platform-builder-scripts-for-gba-emulators.611219/post-10138443) is included in this repo.
+#### ZXAdvance:
+- On first run use the ```-e``` builder option to extract the emulator from the Windows injector .exe file 
