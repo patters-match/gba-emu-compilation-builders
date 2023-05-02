@@ -130,8 +130,8 @@ if __name__ == "__main__":
         print("...wrote", default_emubinary) 
         quit()
 
-    roms = bytearray()
-    headers = bytearray()
+    roms = bytes()
+    headers = bytes()
     # there is one blank header between the last header and the first ROM data
     headers_size = (len(args.romfile) + 1 ) * EMU_HEADER
     offset = headers_size
