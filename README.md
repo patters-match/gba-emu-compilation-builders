@@ -4,7 +4,7 @@ Python 3 builder scripts for the following emulators for Gameboy Advance:
 Emulator|Target System|Author(s)|1st Release
 :-------|:------------|:--------|:---
 [PocketNES](https://github.com/Dwedit/PocketNES/releases)|Nintendo NES|Loopy, later FluBBa, Dwedit|Jan 2001?
-[ZXAdvance](https://www.gamebrew.org/wiki/ZXAdvance_GBA)|Sinclair ZX Spectrum|TheHiVE|May 2001
+[ZXAdvance](https://www.gamebrew.org/wiki/ZXAdvance_GBA)|Sinclair ZX Spectrum 48K|TheHiVE|May 2001
 [PCEAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|NEC PC Engine / Super CD-ROM²|FluBBa|Apr 2003
 [Goomba](http://goomba.webpersona.com)|Nintendo Gameboy|FluBBa|Oct 2003
 [HVCA](https://www.gamebrew.org/wiki/HVCA_GBA)|Nintendo NES / Famicom Disk System|outside-agb?|Sep 2004
