@@ -125,7 +125,7 @@ if __name__ == "__main__":
     if emubinaryfilename in original_binaries:
         args.emubinary.seek(723716)
         emubin = bytearray(args.emubinary.read(146800))
-        emubin[780] = 0 # patch to disable intro (already 0 in v1.0.1a)
+        emubin[780] = 0 # patch to disable intro (already 0 in v1.0.1a - this is the only difference between the versions)
         writefile(default_emubinary, emubin)
         print("...wrote", default_emubinary) 
         quit()
