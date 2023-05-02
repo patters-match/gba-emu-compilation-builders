@@ -113,7 +113,7 @@ coded by patters in 2022
   - Reconstructs FDS ROM headers if they are missing, which HVCA requires
 - ZXAdvance:
   - On first run use the ```-e``` builder option to extract the emulator from the .exe file, will accept v1.0.1 or v1.0.1a
-  - Will retrieve game-specific controls configurations from ZXA.INI, a \[section\] for each game filename (without file extension), 'filename=' key is how the game title will be displayed in the ZXAdvance ROM list
+  - Will retrieve game-specific controls configurations from ZXA.INI
 
 ## Automation
 With a simple FOR loop the scripts can also create a standalone executable for each game in a folder.
@@ -162,3 +162,6 @@ If you own an EZ-Flash IV flashcart my curated collection of [exit-patched emula
 - A .cfg filename must match the filename of the game it targets
 - Hold L+R in the menu to exit back to the flashcart menu
 - This requires the ```-x``` builder option to add a .sub file containing exit code for specific flashcart models. My own [hacked flash_ez4.sub](https://gbatemp.net/threads/multi-platform-builder-scripts-for-gba-emulators.611219/post-10138443) is included in this repo.
+#### ZXAdvance:
+- ZXA.INI has a \[section\] for each game filename (without file extension), 'filename=' key is how the game title will be displayed in the ZXAdvance ROM list
+- 'Config' can be Custom, or can refer to one of the sections prefixed with 'Config_' at the top of the file
