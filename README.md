@@ -113,7 +113,7 @@ coded by patters in 2022
   - Reconstructs FDS ROM headers if they are missing, which HVCA requires
   - A .cfg filename must match the filename of the game it targets
 - ZXAdvance:
-  - On first run use the ```-e``` builder option to extract the emulator from the Windows injector .exe file
+  - On first run use the ```-e``` builder option to extract the emulator from the .exe file, will accept v1.0.1 or v1.0.1a
   - Will retrieve game-specific controls configurations from ZXA.INI 
 
 ## Automation
