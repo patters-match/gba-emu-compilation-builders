@@ -91,7 +91,7 @@ coded by patters in 2022
   - Can trim compilation to fit within 16MB PSRAM with ```-trim``` option (needed for certain CD-ROM² titles)
 - Goomba:
   - Works around an [EZ-Flash issue](https://www.dwedit.org/dwedit_board/viewtopic.php?id=643) where some ROMs would cause duplicate game list entries
-  - Can prefer ROM filenames rather than original ROM game titles in the game list with ```-f``` option
+  - Can prefer ROM filenames in the game list rather than original ROM game titles, with ```-f``` option
 - PocketNES:
   - Will, if present, lookup ROM checksum in PocketNES Menu Maker database ([pnesmmw.mdb](https://web.archive.org/web/20060208115559/http://www.pocketnes.org/tools/pnesmmw12a.zip)) for optimal game settings, sprite/memory follow for "Unscaled (Follow)" display mode 
   - Can prefer game titles from PocketNES Menu Maker database with ```-dbn``` option
