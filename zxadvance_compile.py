@@ -128,7 +128,7 @@ if __name__ == "__main__":
         emubin[780] = 0 # patch to disable intro (already 0 in v1.0.1a)
         writefile(default_emubinary, emubin)
         print("...wrote", default_emubinary) 
-        sys.exit(0)
+        quit()
 
     roms = bytearray()
     headers = bytearray()
