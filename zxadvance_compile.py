@@ -125,7 +125,7 @@ if __name__ == "__main__":
     if emubinaryfilename in original_binaries:
         args.emubinary.seek(723716)
         emubin = bytearray(args.emubinary.read(146800))
-        emubin[780] = 0 # patch to disable intro (already 0 in v1.0.1a - this is the only difference between the versions)
+        emubin[780] = 0 # patch to disable intro (already 0 in v1.0.1a)
         writefile(default_emubinary, emubin)
         print("...wrote", default_emubinary) 
         quit()
@@ -146,8 +146,7 @@ if __name__ == "__main__":
         elif romfileext.lower() == ".z80":
             romtype = 1
         else:
-            print("Error: unsupported filetype for compilation -", romfilename)
-            sys.exit(1)
+            raise Exception(f'unsupported filetype for compilation - {romname}')
 
         keys = default_controls
         controlscheme = ""
