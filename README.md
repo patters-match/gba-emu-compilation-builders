@@ -113,7 +113,7 @@ coded by patters in 2022
   - Reconstructs FDS ROM headers if they are missing, which HVCA requires
 - ZXAdvance:
   - On first run use the ```-e``` builder option to extract the emulator from the .exe file, will accept v1.0.1 or v1.0.1a
-  - Will retrieve game-specific controls configurations from ZXA.INI 
+  - Will retrieve game-specific controls configurations from ZXA.INI, a \[section\] for each game filename (without file extension), 'filename=' key is how the game title will be displayed in the ZXAdvance ROM list
 
 ## Automation
 With a simple FOR loop the scripts can also create a standalone executable for each game in a folder.
