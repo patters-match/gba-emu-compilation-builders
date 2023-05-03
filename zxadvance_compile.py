@@ -22,15 +22,15 @@ header_struct_format = "<15sxIBx10B" # https://docs.python.org/3/library/struct.
 
 # same ordering as ZX Spectrum keyboard polling http://www.breakintoprogram.co.uk/hardware/computers/zx-spectrum/keyboard
 control_map = {
-	'JOY FIRE':45,   'JOY UP':44, 'JOY DOWN':43, 'JOY LEFT':42, 'JOY RIGHT':41,
-	   'SHIFT':40,        'Z':39,        'X':38,        'C':37,         'V':36,
-	       'A':35,        'S':34,        'D':33,        'F':32,         'G':31,
-	       'Q':30,        'W':29,        'E':28,        'R':27,         'T':26,
-	       '1':25,        '2':24,        '3':23,        '4':22,         '5':21,
-	       '0':20,        '9':19,        '8':18,        '7':17,         '6':16,
-	       'P':15,        'O':14,        'I':13,        'U':12,         'Y':11,
-	   'ENTER':10,        'L': 9,        'K': 8,        'J': 7,         'H': 6,
-	   'SPACE': 5,'SYM SHIFT': 4,        'M': 3,        'N': 2,         'B': 1, '<unassigned>':0
+	'JOY FIRE':0x2D,   'JOY UP':0x2C, 'JOY DOWN':0x2B, 'JOY LEFT':0x2A, 'JOY RIGHT':0x29,
+	   'SHIFT':0x28,        'Z':0x27,        'X':0x26,        'C':0x25,         'V':0x24,
+	       'A':0x23,        'S':0x22,        'D':0x21,        'F':0x20,         'G':0x1F,
+	       'Q':0x1E,        'W':0x1D,        'E':0x1C,        'R':0x1B,         'T':0x1A,
+	       '1':0x19,        '2':0x18,        '3':0x17,        '4':0x16,         '5':0x15,
+	       '0':0x14,        '9':0x13,        '8':0x12,        '7':0x11,         '6':0x10,
+	       'P':0x0F,        'O':0x0E,        'I':0x0D,        'U':0x0C,         'Y':0x0B,
+	   'ENTER':0x0A,        'L':0x09,        'K':0x08,        'J':0x07,         'H':0x06,
+	   'SPACE':0x05,'SYM SHIFT':0x04,        'M':0x03,        'N':0x02,         'B':0x01, '<unassigned>':0x0
 }
 default_controls = {
 	 'back left':'S',
