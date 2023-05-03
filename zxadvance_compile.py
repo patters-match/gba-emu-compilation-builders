@@ -24,11 +24,11 @@ header_struct_format = "<15sxIBx10B" # https://docs.python.org/3/library/struct.
 control_map = {
 	'JOY FIRE':45,   'JOY UP':44, 'JOY DOWN':43, 'JOY LEFT':42, 'JOY RIGHT':41,
 	   'SHIFT':40,        'Z':39,        'X':38,        'C':37,         'V':36,
-		   'A':35,        'S':34,        'D':33,        'F':32,         'G':31,
-		   'Q':30,        'W':29,        'E':28,        'R':27,         'T':26,
-		   '1':25,        '2':24,        '3':23,        '4':22,         '5':21,
-		   '0':20,        '9':19,        '8':18,        '7':17,         '6':16,
-		   'P':15,        'O':14,        'I':13,        'U':12,         'Y':11,
+	       'A':35,        'S':34,        'D':33,        'F':32,         'G':31,
+	       'Q':30,        'W':29,        'E':28,        'R':27,         'T':26,
+	       '1':25,        '2':24,        '3':23,        '4':22,         '5':21,
+	       '0':20,        '9':19,        '8':18,        '7':17,         '6':16,
+	       'P':15,        'O':14,        'I':13,        'U':12,         'Y':11,
 	   'ENTER':10,        'L': 9,        'K': 8,        'J': 7,         'H': 6,
 	   'SPACE': 5,'SYM SHIFT': 4,        'M': 3,        'N': 2,         'B': 1, '<unassigned>':0
 }
@@ -39,8 +39,8 @@ default_controls = {
 	'dpad right':'JOY RIGHT',
 	   'dpad up':'JOY UP',
 	 'dpad down':'JOY DOWN',
-		 'start':'0',
-		'select':'1',
+	     'start':'0',
+	    'select':'1',
 	  'button a':'JOY FIRE',
 	  'button b':'JOY FIRE'
 }
