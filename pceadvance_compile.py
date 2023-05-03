@@ -221,7 +221,7 @@ if __name__ == "__main__":
 		else:
 			raise Exception(f'unsupported filetype for compilation - {romfilename}')
 
-		print (romtitle)
+		print(romtitle)
 
 	# finished iterating rom list, append any CD-ROM data
 	if iso_count:

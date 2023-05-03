@@ -125,7 +125,7 @@ if __name__ == "__main__":
 		romheader = struct.pack(header_struct_format, EMUID, len(rom), flags, follow, 0, 0, 0, 0, romtitle.encode('ascii'))
 		compilation += romheader + rom
 
-		print (romtitle)
+		print(romtitle)
 
 	writefile(args.outputfile, compilation)
 

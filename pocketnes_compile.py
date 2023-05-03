@@ -208,7 +208,7 @@ if __name__ == "__main__":
 		romheader = struct.pack(header_struct_format, romtitle.encode('ascii'), len(rom), flags, follow, 0)
 		compilation += romheader + rom
 
-		print (db_match, romtitle)
+		print(db_match, romtitle)
 
 	writefile(args.outputfile, compilation)
 

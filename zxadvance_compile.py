@@ -16,7 +16,7 @@ header_struct_format = "<15sxIBx10B" # https://docs.python.org/3/library/struct.
 # 
 #  char name[16]              # null terminated
 #  long offset                # from end of ZXAdvance binary
-#  unsigned char romtype      # 0=SNA, 1=Z80
+#  unsigned char filetype     # 0=SNA, 1=Z80
 #  unsigned char              # unused?
 #  unsigned char controls[10] # A,B,Select,Start,Right,Left,Up,Down,R,L
 
@@ -137,16 +137,16 @@ if __name__ == "__main__":
 	offset = headers_size
 
 	for item in args.romfile:
-		romname = os.path.split(item.name)[1]
-		romfilename = os.path.splitext(romname)[0]
-		romfileext = os.path.splitext(romname)[1]
+		romfilename = os.path.split(item.name)[1]
+		romtitle = os.path.splitext(romfilename)[0]
+		romtype = os.path.splitext(romfilename)[1]
 
-		if romfileext.lower() == ".sna":
-			romtype = 0
-		elif romfileext.lower() == ".z80":
-			romtype = 1
+		if romtype.lower() == ".sna":
+			filetype = 0
+		elif romtype.lower() == ".z80":
+			filetype = 1
 		else:
-			raise Exception(f'unsupported filetype for compilation - {romname}')
+			raise Exception(f'unsupported filetype for compilation - {romfilename}')
 
 		keys = default_controls
 		controlscheme = ""
@@ -155,8 +155,8 @@ if __name__ == "__main__":
 			# read controls mappings from ZXA.INI, if present
 			config = configparser.ConfigParser()
 			config.read(args.inifile)
-			if romfilename in config:
-				gameconfig = config[romfilename]
+			if romtitle in config:
+				gameconfig = config[romtitle]
 				controlscheme = gameconfig['control']
 				if controlscheme == 'Custom':
 					keys = dict(gameconfig)
@@ -167,10 +167,10 @@ if __name__ == "__main__":
 
 		rom = item.read()
 		rom += b"\0" * ((4 - (len(rom)%4))%4) # 4 byte alignment
-		name = romfilename[:15].ljust(15)
+		name = romtitle[:15].ljust(15)
 
 		fileheader = struct.pack(
-			header_struct_format, name.encode('ascii'), offset, romtype,
+			header_struct_format, name.encode('ascii'), offset, filetype,
 			control_map[keys['button a']], control_map[keys['button b']], control_map[keys['select']], control_map[keys['start']],
 			control_map[keys['dpad right']], control_map[keys['dpad left']], control_map[keys['dpad up']], control_map[keys['dpad down']],
 			control_map[keys['back right']], control_map[keys['back left']]
@@ -179,7 +179,7 @@ if __name__ == "__main__":
 		headers += fileheader
 		roms += rom
 		offset += len(rom)
-		print('{:<16}{:<4}{}'.format(name,romfileext.strip('.').lower(),controlscheme))
+		print('{:<16}{:<4}{}'.format(name,romtype.strip('.').lower(),controlscheme))
 
 	blankheader = b'\0' * EMU_HEADER
 	compilation = args.emubinary.read() + headers + blankheader + roms

@@ -171,16 +171,16 @@ if __name__ == "__main__":
 	fdsfiles, nesfiles, nsffiles, cfgfiles =([], [], [], [])
 
 	for item in args.romfile:
-		romname = os.path.split(item.name)[1]
-		romfilename = os.path.splitext(romname)[0]
-		romfileext = os.path.splitext(romname)[1]
-		if romfileext.lower() == ".fds":
+		romfilename = os.path.split(item.name)[1]
+		romtitle = os.path.splitext(romfilename)[0]
+		romtype = os.path.splitext(romfilename)[1]
+		if romtype.lower() == ".fds":
 			fdsfiles.append(item)
-		elif romfileext.lower() == ".nes":
+		elif romtype.lower() == ".nes":
 			nesfiles.append(item)
-		elif romfileext.lower() == ".nsf":
+		elif romtype.lower() == ".nsf":
 			nsffiles.append(item)
-		elif romfileext.lower() == ".cfg":
+		elif romtype.lower() == ".cfg":
 			cfgfiles.append(item)
 		else:
 			raise Exception(f'unsupported filetype for compilation - {romfilename}')

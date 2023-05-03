@@ -548,7 +548,7 @@ if __name__ == "__main__":
 								romtitle = romtitle.split(" [")[0] # strip the square bracket parts of the name
 								romtitle = romtitle.split(" (")[0] # strip the bracket parts of the name
 							romtitle = romtitle[:31].upper() # font.bin is upper case only
-						print (db_match, romtitle)
+						print(db_match, romtitle)
 						flags1 = int(recorddata[2],16)
 						flags2 = int(recorddata[3],16)
 						autoscroll1 = int(recorddata[4],16)
@@ -576,7 +576,7 @@ if __name__ == "__main__":
 							rom = romarray
 					
 			if db_match == "  ":
-				print (db_match, romtitle)
+				print(db_match, romtitle)
 
 		else:
 			print("Error: unsupported filetype for compilation -", romfilename)
