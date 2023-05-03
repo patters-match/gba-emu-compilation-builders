@@ -344,9 +344,9 @@ if __name__ == "__main__":
 			raise Exception(f'unsupported filetype for compilation - {romfilename}')
 
 	if args.v:
-		print ("press L+R+Start for the emulator menu")
-		print ("press L+R+Select+Up to cycle BG Priority Sets")
-		print ("press L+R+Select+Down to cycle Forced BG Modes")
+		print("press L+R+Start for the emulator menu")
+		print("press L+R+Select+Up to cycle BG Priority Sets")
+		print("press L+R+Select+Down to cycle Forced BG Modes")
 
 
 
