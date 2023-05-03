@@ -161,6 +161,6 @@ If you own an EZ-Flash IV flashcart my curated collection of [exit-patched emula
 #### HVCA:
 - A .cfg filename must match the filename of the game it targets
 - Hold L+R in the menu to exit back to the flashcart menu
-- This requires the ```-x``` builder option to add a .sub file containing exit code for specific flashcart models. My own [hacked flash_ez4.sub](https://gbatemp.net/threads/multi-platform-builder-scripts-for-gba-emulators.611219/post-10138443) is included in this repo.
+- This requires the ```-x``` builder option to add a .sub file containing exit code for specific flashcart models. My own [hacked flash_ez4_ezo.sub](https://gbatemp.net/threads/multi-platform-builder-scripts-for-gba-emulators.611219/post-10138443) for EZ-Flash IV / 3in1 / Omega is included in this repo.
 #### ZXAdvance:
 - ZXA.INI has a \[section\] for each game filename (without file extension), the 'filename=' key is in fact how the game title will be displayed in the ZXAdvance ROM list. 'Config' can be Custom, or can refer to one of the sections prefixed with 'Config_' at the top of the file - e.g. Config=Kempston
