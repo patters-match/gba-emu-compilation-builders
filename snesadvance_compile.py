@@ -10,7 +10,7 @@ SRAM_SAVE = 65536
 default_outputfile = "snesadv-compilation.gba"
 default_emubinary = "SNESAdvance.bin"
 default_database = "snesadvance.dat"
-header_struct_format = "<31sc8I" # https://docs.python.org/3/library/struct.html
+header_struct_format = "<31sx8I" # https://docs.python.org/3/library/struct.html
 
 # ROM header
 #
@@ -493,11 +493,11 @@ if __name__ == "__main__":
 	else:
 		font_pal = bz2.decompress(base64.b64decode(font_pal))
 
-	compilation = compilation + struct.pack("<I", len(background_bin_lz77)) + background_bin_lz77
-	compilation = compilation + struct.pack("<I", len(background_pal_lz77)) + background_pal_lz77
-	compilation = compilation + struct.pack("<I", len(font_bin_lz77)) + font_bin_lz77
-	compilation = compilation + struct.pack("<I", len(font_pal)) + font_pal # this one isn't lz77 packed (too small)
-	compilation = compilation + struct.pack("<I", len(args.romfile)) # number of ROMs in compilation
+	compilation += struct.pack("<I", len(background_bin_lz77)) + background_bin_lz77
+	compilation += struct.pack("<I", len(background_pal_lz77)) + background_pal_lz77
+	compilation += struct.pack("<I", len(font_bin_lz77)) + font_bin_lz77
+	compilation += struct.pack("<I", len(font_pal)) + font_pal # this one isn't lz77 packed (too small)
+	compilation += struct.pack("<I", len(args.romfile)) # number of ROMs in compilation
 
 	for item in args.romfile:
 
@@ -582,9 +582,9 @@ if __name__ == "__main__":
 			print("Error: unsupported filetype for compilation -", romfilename)
 			sys.exit(1)
 
-		rom = rom + b"\0" * ((4 - (len(rom)%4))%4)
-		romheader = struct.pack(header_struct_format, romtitle.encode('latin-1'), b"\0", len(rom), int(crcstr,16), flags1, flags2, autoscroll1, autoscroll2, scale, offset)
-		compilation = compilation + romheader + rom
+		rom += b"\0" * ((4 - (len(rom)%4))%4)
+		romheader = struct.pack(header_struct_format, romtitle.encode('latin-1'), len(rom), int(crcstr,16), flags1, flags2, autoscroll1, autoscroll2, scale, offset)
+		compilation += romheader + rom
 
 
 

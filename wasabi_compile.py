@@ -9,7 +9,7 @@ SRAM_SAVE = 65536
 
 default_outputfile = "wasabi-compilation.gba"
 default_emubinary = "WasabiGBA.gba"
-header_struct_format = "<8I31sc" # https://docs.python.org/3/library/struct.html
+header_struct_format = "<8I31sx" # https://docs.python.org/3/library/struct.html
 
 # ROM header
 #
@@ -112,8 +112,7 @@ if __name__ == "__main__":
 		romtype = os.path.splitext(romfilename)[1]
 
 		if romtype.lower() != ".sv":
-			print("Error: unsupported filetype for compilation -", romfilename)
-			sys.exit(1)
+			raise Exception(f'unsupported filetype for compilation - {romfilename}')
 
 		if args.c:
 			romtitle = romtitle.split(" [")[0] # strip the square bracket parts of the name
@@ -122,9 +121,9 @@ if __name__ == "__main__":
 		romtitle = romtitle[:31]
 
 		rom = item.read()
-		rom = rom + b"\0" * ((4 - (len(rom)%4))%4)
-		romheader = struct.pack(header_struct_format, EMUID, len(rom), flags, follow, 0, 0, 0, 0, romtitle.encode('ascii'), b"\0")
-		compilation = compilation + romheader + rom
+		rom += b"\0" * ((4 - (len(rom)%4))%4)
+		romheader = struct.pack(header_struct_format, EMUID, len(rom), flags, follow, 0, 0, 0, 0, romtitle.encode('ascii'))
+		compilation += romheader + rom
 
 		print (romtitle)
 
