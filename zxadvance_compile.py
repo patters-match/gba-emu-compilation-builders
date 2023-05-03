@@ -155,8 +155,8 @@ if __name__ == "__main__":
 			# read controls mappings from ZXA.INI, if present
 			config = configparser.ConfigParser()
 			config.read(args.inifile)
-			if romtitle in config:
-				gameconfig = config[romtitle]
+			if romtitle.lower() in config:
+				gameconfig = config[romtitle.lower()]
 				controlscheme = gameconfig['control']
 				if controlscheme == 'Custom':
 					keys = dict(gameconfig)
@@ -164,10 +164,12 @@ if __name__ == "__main__":
 					schemesectionname = 'Control_' + controlscheme
 					schemeconfig = config[schemesectionname]
 					keys = dict(schemeconfig)
+				name = gameconfig['filename'][:15].ljust(15)
+			else:
+				name = romtitle[:15].ljust(15)
 
 		rom = item.read()
 		rom += b"\0" * ((4 - (len(rom)%4))%4) # 4 byte alignment
-		name = romtitle[:15].ljust(15)
 
 		fileheader = struct.pack(
 			header_struct_format, name.encode('ascii'), offset, filetype,
