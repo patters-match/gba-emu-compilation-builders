@@ -3,7 +3,7 @@
 import sys, os.path, struct, argparse, bz2, base64
 from sys import argv
 
-EMUID = int(0x1A565357) # "WSV",0x1A
+EMU_ID = int(0x1A565357) # "WSV",0x1A
 EMU_HEADER = 64
 SRAM_SAVE = 65536
 
@@ -122,7 +122,7 @@ if __name__ == "__main__":
 
 		rom = item.read()
 		rom += b"\0" * ((4 - (len(rom)%4))%4)
-		romheader = struct.pack(header_struct_format, EMUID, len(rom), flags, follow, 0, 0, 0, 0, romtitle.encode('ascii'))
+		romheader = struct.pack(header_struct_format, EMU_ID, len(rom), flags, follow, 0, 0, 0, 0, romtitle.encode('ascii'))
 		compilation += romheader + rom
 
 		print(romtitle)

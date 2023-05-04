@@ -3,7 +3,7 @@
 import sys, os.path, struct, argparse, bz2, base64
 from sys import argv
 
-EMUID = int(0x1A53454E) # "NES",0x1A - probably unintentional
+EMU_ID = int(0x1A53454E) # "NES",0x1A - probably unintentional
 EMU_HEADER = 60
 SRAM_SAVE = 65536 # not 8KB as advertised in readme.txt
 
@@ -179,7 +179,7 @@ if __name__ == "__main__":
 
 			# unsure why 16 bytes are added to len(rom), but the original builder does this, despite that it pads the roms a lot more than 16b
 			# however, you can't add more than one rom to the compilation unless this is done
-			romheader = struct.pack(header_struct_format, romtitle.encode('ascii'), len(rom)+16, flags, follow, 0, EMUID, b"@           ")
+			romheader = struct.pack(header_struct_format, romtitle.encode('ascii'), len(rom)+16, flags, follow, 0, EMU_ID, b"@           ")
 
 			compilation += romheader + rom
 
@@ -199,7 +199,7 @@ if __name__ == "__main__":
 				romtitle = romtitle[:31]
 
 				# use the ISO name for the cdbios entry in the rom list
-				cdromheader = struct.pack(header_struct_format, romtitle.encode('ascii'), len(cdbios)+16, flags, follow, 0, EMUID, b"@           ")
+				cdromheader = struct.pack(header_struct_format, romtitle.encode('ascii'), len(cdbios)+16, flags, follow, 0, EMU_ID, b"@           ")
 				compilation += cdromheader + cdbios
 
 				if args.tcdfile:
