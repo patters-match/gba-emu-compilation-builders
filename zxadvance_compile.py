@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
 	parser = argparse.ArgumentParser(
 		description="This script will assemble the ZXAdvance emulator and Z80/SNA snapshots into a Gameboy Advance ROM image. It is recommended to type the script name, then drag and drop multiple ROM files onto the shell window, then add any additional arguments as needed.",
-		epilog="coded by patters in 2023"
+		epilog="reverse engineered by patters in 2023"
 	)
 
 	parser.add_argument(
