@@ -44,6 +44,8 @@ default_controls = {
 	  'button a':'JOY FIRE',
 	  'button b':'JOY FIRE'
 }
+ezflash_reset = base64.b64decode('AQyg4w8woOECRKDjBBCT5AQQhOQEAFDi+///GgIEoOMdAIDiEP8v4SAggwUAAxwYJRgBAloYGQlWGgkJdhgSGhca0iAAAhUhCQIQgBmAIIApgBgLMIA5gMECCDn8IAhgAd8A3w==')
+gba_logo = base64.b64decode('JP+uUWmaoiE9hIIKhOQJrREki5jAgX8ho1K+GZMJziAQRkpK+Ccx7FjH6DOC486/hfTflM5LCcGUVorAE3Kn/J+ETXOjypphWJejJ/wDmHYjHcdhAwSuVr84hABApw79/1L+A2+VMPGX+8CFYNaAJaljvgMBTjji+aI0/7s+A0R4AJDLiBE6lGXAfGOH8Dyv1iXkizgKrHIh1PgH')
 
 def readfile(name):
 	with open(name, "rb") as fh:
@@ -123,11 +125,27 @@ if __name__ == "__main__":
 
 	emubinaryfilename = os.path.split(args.emubinary.name)[1]
 	if emubinaryfilename in original_binaries:
-		args.emubinary.seek(723716)
-		emubin = bytearray(args.emubinary.read(146800))
-		emubin[780] = 0 # patch to disable intro (already 0 in v1.0.1a, which is the only difference)
+		args.emubinary.seek(0xB0B04)
+		emubin = bytearray(args.emubinary.read(0x23D70))
+
+		# fix rom header
+		emubin[0x4:0xA0] = gba_logo                   # http://www.problemkaputt.de/gbatek-gba-cartridge-header.htm
+		emubin[0xAC:0xB3] = b'ZXAV01\x96'             # 'ZXAV' is a more appropriate GAME_ID than 'Home', Nintendo maker code, next byte should always be 0x96
+		emubin[0xB8:0xBF] = b'\x9c\x01\x10\0\0\x0b\0' # force 64KB SAV on EZ-Flash IV firmware 1.x
+		header_checksum = 0
+		for i in range(0xA0, 0xBD):
+			header_checksum += emubin[i]
+		header_checksum = (0x100 - ((header_checksum + 0x19) & 0xFF)) & 0xFF # from Kuwanger's gba2plugin.py
+		emubin[0xBD] = header_checksum
+
+		# hacks
+		emubin[0x30C] = 0                             # patch to disable intro (already 0 in v1.0.1a, which is the only difference)
+		emubin[0x7C94:0x7C9A] = b'Exit  '             # rename the non-working planned 'Cheats' menu item to 'Exit'
+		emubin[0x7CAB:0x7CAD] = emubin[0x7CE7:0x7CE9] # copy the jump address from the 'Exit to Pogoshell' menu option, which is not available in the regular app
+		emubin[0x10368:0x103CC] = ezflash_reset       # replace Pogoshell exit code (visoly.bin) with EZ-Flash IV / 3in1 / Omega exit to flashcart menu routine (reset_ez4.bin)
+
 		writefile(default_emubinary, emubin)
-		print("...wrote", default_emubinary) 
+		print("...wrote", default_emubinary)
 		quit()
 
 	roms = bytes()
