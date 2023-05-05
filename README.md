@@ -111,8 +111,10 @@ coded by patters in 2022
   - Verbose mode, to mimic original snezzi.exe builder with ```-v``` option
 - HVCA:
   - Reconstructs FDS ROM headers if they are missing, which HVCA requires
+  - Adds an exit function for EZ-Flash IV / 3in1 / Omega flashcarts
 - ZXAdvance:
   - On first run use the ```-e``` builder option to extract the emulator from the .exe file, will accept v1.0.1 or v1.0.1a
+  - Adds an exit function for EZ-Flash IV / 3in1 / Omega flashcarts
   - Will retrieve game-specific controls configurations from ZXA.INI
 
 ## Automation
