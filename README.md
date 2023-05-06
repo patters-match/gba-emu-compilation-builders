@@ -116,6 +116,7 @@ coded by patters in 2022
   - On first run use the ```-e``` builder option to extract the emulator from the .exe file, will accept v1.0.1 or v1.0.1a
   - Adds an exit function for EZ-Flash IV / 3in1 / Omega flashcarts
   - Will retrieve game-specific controls configurations from ZXA.INI
+  - Can create a Pogoshell plugin integrating the game configurations from ZXA.INI with the ```-p``` builder option
 
 ## Automation
 With a simple FOR loop the scripts can also create a standalone executable for each game in a folder.
