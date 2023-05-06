@@ -8,9 +8,13 @@ SRAM_SAVE = 65536
 
 default_outputfile = "zxadv-compilation.gba"
 default_emubinary = "zxa.gba"
+clean_emubinary = "zxa-clean.gba"
+pogo_plugin = "zxa-pogo.gba"
 default_inifile = "ZXA.INI"
 original_binaries = [ "ZXAdvance 1.0.1.exe", "ZXAdvance 1.0.1a.exe" ]
 header_struct_format = "<15sxIBx10B" # https://docs.python.org/3/library/struct.html
+pogo_header_struct_format = "<31sx10B"
+
 
 # ZXAdvance rom header (headers for all files are concatenated directly after the emulator binary)
 # 
@@ -19,6 +23,13 @@ header_struct_format = "<15sxIBx10B" # https://docs.python.org/3/library/struct.
 #  unsigned char filetype     # 0=SNA, 1=Z80
 #  unsigned char              # unused?
 #  unsigned char controls[10] # A,B,Select,Start,Right,Left,Up,Down,R,L
+
+
+# ZXAdvance Pogoshell header (for matching Pogoshell filenames to control schemes)
+# 
+#  char name[32]              # null terminated
+#  unsigned char controls[10] # A,B,Select,Start,Right,Left,Up,Down,R,L
+
 
 # same ordering as ZX Spectrum keyboard polling http://www.breakintoprogram.co.uk/hardware/computers/zx-spectrum/keyboard
 control_map = {
@@ -29,9 +40,10 @@ control_map = {
 	       '1':0x19,        '2':0x18,        '3':0x17,        '4':0x16,         '5':0x15,
 	       '0':0x14,        '9':0x13,        '8':0x12,        '7':0x11,         '6':0x10,
 	       'P':0x0F,        'O':0x0E,        'I':0x0D,        'U':0x0C,         'Y':0x0B,
-	   'ENTER':0x0A,        'L':0x09,        'K':0x08,        'J':0x07,         'H':0x06,
+	   'ENTER':0x0A,        'L':0x09,        'K':0x08,        'J':0x07,         'H':0x06,   'JOY FIRE 2':0x0,
 	   'SPACE':0x05,'SYM SHIFT':0x04,        'M':0x03,        'N':0x02,         'B':0x01, '<unassigned>':0x0
 }
+
 default_controls = {
 	 'back left':'S',
 	'back right':'K',
@@ -44,6 +56,7 @@ default_controls = {
 	  'button a':'JOY FIRE',
 	  'button b':'JOY FIRE'
 }
+
 ezflash_reset = base64.b64decode('AQyg4w8woOECRKDjBBCT5AQQhOQEAFDi+///GgIEoOMdAIDiEP8v4SAggwUAAxwYJRgBAloYGQlWGgkJdhgSGhca0iAAAhUhCQIQgBmAIIApgBgLMIA5gMECCDn8IAhgAd8A3w==')
 gba_logo = base64.b64decode('JP+uUWmaoiE9hIIKhOQJrREki5jAgX8ho1K+GZMJziAQRkpK+Ccx7FjH6DOC486/hfTflM5LCcGUVorAE3Kn/J+ETXOjypphWJejJ/wDmHYjHcdhAwSuVr84hABApw79/1L+A2+VMPGX+8CFYNaAJaljvgMBTjji+aI0/7s+A0R4AJDLiBE6lGXAfGOH8Dyv1iXkizgKrHIh1PgH')
 
@@ -57,6 +70,14 @@ def writefile(name, contents):
 		fh.write(contents)
 		if name == default_outputfile:
 			print("...wrote", name) 
+
+def pogoheader(name, keys):
+	header = struct.pack(
+		pogo_header_struct_format, name.encode('ascii'), control_map[keys['button a']], control_map[keys['button b']],
+		control_map[keys['select']], control_map[keys['start']], control_map[keys['dpad right']], control_map[keys['dpad left']],
+		control_map[keys['dpad up']], control_map[keys['dpad down']], control_map[keys['back right']], control_map[keys['back left']]
+	)
+	return header
 
 #def get_bit(value, n):
 #    return ((value >> n & 1) != 0)
@@ -77,7 +98,7 @@ if __name__ == "__main__":
 
 	parser = argparse.ArgumentParser(
 		description="This script will assemble the ZXAdvance emulator and Z80/SNA snapshots into a Gameboy Advance ROM image. It is recommended to type the script name, then drag and drop multiple ROM files onto the shell window, then add any additional arguments as needed.",
-		epilog="reverse engineered by patters in 2023"
+		epilog="coded by patters in 2023"
 	)
 
 	parser.add_argument(
@@ -110,6 +131,11 @@ if __name__ == "__main__":
 		default = default_outputfile
 	)
 	parser.add_argument(
+		'-p',
+		help = "create Pogoshell plugin using the game configurations from ZXA.INI, outputs to " + pogo_plugin,
+		action = 'store_true'
+	)
+	parser.add_argument(
 		'-sav',
 		help = "for EZ-Flash IV firmware 1.x - create a blank 64KB .sav file for the compilation, store in the SAVER folder, not needed for firmware 2.x which creates its own blank saves",
 		action = 'store_true'
@@ -124,13 +150,18 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 	emubinaryfilename = os.path.split(args.emubinary.name)[1]
+
 	if emubinaryfilename in original_binaries:
+	
 		args.emubinary.seek(0xB0B04)
 		emubin = bytearray(args.emubinary.read(0x23D70))
+		emubin[0x30C] = 0                             # patch to disable intro (already 0 in v1.0.1a, which is the only difference)
+		writefile(clean_emubinary, emubin)
+		print("...wrote", clean_emubinary)
 
 		# fix rom header
 		emubin[0x4:0xA0] = gba_logo                   # http://www.problemkaputt.de/gbatek-gba-cartridge-header.htm
-		emubin[0xAC:0xB3] = b'ZXAV01\x96'             # 'ZXAV' is a more appropriate GAME_ID than 'Home', Nintendo maker code, next byte should always be 0x96
+		emubin[0xAC:0xB2] = b'ZXAV01'                 # 'ZXAV' is a more appropriate GAME_ID than 'Home', Nintendo maker code
 		emubin[0xB8:0xBF] = b'\x9c\x01\x10\0\0\x0b\0' # force 64KB SAV on EZ-Flash IV firmware 1.x
 		header_checksum = 0
 		for i in range(0xA0, 0xBD):
@@ -139,13 +170,41 @@ if __name__ == "__main__":
 		emubin[0xBD] = header_checksum
 
 		# hacks
-		emubin[0x30C] = 0                             # patch to disable intro (already 0 in v1.0.1a, which is the only difference)
 		emubin[0x7C94:0x7C9A] = b'Exit  '             # rename the non-working planned 'Cheats' menu item to 'Exit'
 		emubin[0x7CAB:0x7CAD] = emubin[0x7CE7:0x7CE9] # copy the jump address from the 'Exit to Pogoshell' menu option, which is not available in the regular app
 		emubin[0x10368:0x103CC] = ezflash_reset       # replace Pogoshell exit code (visoly.bin) with EZ-Flash IV / 3in1 / Omega exit to flashcart menu routine (reset_ez4.bin)
 
 		writefile(default_emubinary, emubin)
-		print("...wrote", default_emubinary)
+		print("...wrote", default_emubinary, "(fixed header, exit-patched)")
+		quit()
+
+	elif not args.romfile and not args.p:
+		raise Exception(f'nothing to do')
+
+	if args.p:
+		pogoplugin = readfile(clean_emubinary)
+		pogoplugin += pogoheader('<POGOSHELL>', default_controls)
+		if os.path.exists(args.inifile):
+			# read controls mappings from ZXA.INI, if present
+			config = configparser.ConfigParser()
+			config.read(args.inifile)
+			for item in config:
+				if any(item.lower() == s for s in ('default', 'zxa', 'homepage', 'settings', 'control defaults', )) or item.lower().startswith("control_"):
+					continue
+				gameconfig = config[item]
+				print(item)
+				controlscheme = gameconfig['control']
+				if controlscheme == 'Custom':
+					keys = dict(gameconfig)
+				else:
+					schemesectionname = 'Control_' + controlscheme
+					schemeconfig = config[schemesectionname]
+					keys = dict(schemeconfig)
+				name = item[:31].ljust(31).lower() # ZXAdvance converts Pogoshell filenames to lower case before matching them against ZXA.INI entries
+				pogoplugin += pogoheader(name, keys)
+		pogoplugin += b'\0'
+		writefile(pogo_plugin, pogoplugin)
+		print("...wrote", pogo_plugin)
 		quit()
 
 	roms = bytes()
