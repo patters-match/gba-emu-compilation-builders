@@ -117,6 +117,7 @@ coded by patters in 2022
   - Adds an exit function for EZ-Flash IV / 3in1 / Omega flashcarts
   - Will retrieve game-specific controls configurations from ZXA.INI
   - Can create a Pogoshell plugin integrating the game configurations from ZXA.INI with the ```-p``` builder option
+  - Can clean and sort the inifile using the ```-c``` option
 
 ## Automation
 With a simple FOR loop the scripts can also create a standalone executable for each game in a folder.
