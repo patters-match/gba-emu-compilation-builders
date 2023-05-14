@@ -12,7 +12,7 @@ Emulator|Target System|Author(s)|1st Release
 [SNESAdvance](https://web.archive.org/web/20080208234615/http://www.snesadvance.org/index.html)|Nintendo SNES|Loopy, FluBBa|Feb 2005
 [SMSAdvance](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|SEGA Master System / Game Gear / SG-1000|FluBBa|Jul 2005
 [Cologne](https://web.archive.org/web/20150430211123/http://www.ndsretro.com/gbadown.html)|ColecoVision|FluBBa|Jan 2006
-[Goomba Color](https://www.dwedit.org/gba/goombacolor.php)|A Goomba fork to add Gameboy Color|FluBBa, Dwedit|Jan 2006
+[Goomba Color](https://www.dwedit.org/gba/goombacolor.php)|Nintendo Gameboy / Gameboy Color|FluBBa, Dwedit|Jan 2006
 [MSXAdvance](https://github.com/patters-syno/msxadvance)|MSX-1 *(version 0.2 is most compatible)*|FluBBa|Mar 2006
 [Snezziboy](https://sourceforge.net/projects/snezziboy/files/snezziboy%20%28binaries%2Bsource%29/v0.26/)|Nintendo SNES|bubble2k|May 2006
 [NGPGBA](https://github.com/FluBBaOfWard/NGPGBA)|SNK Neo Geo Pocket / Pocket Color|Flubba|Jul 2008
