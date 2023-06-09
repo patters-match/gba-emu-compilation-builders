@@ -198,7 +198,7 @@ if __name__ == "__main__":
 			romtitle = romtitle[:31]
 
 		else:
-		raise Exception(f'unsupported filetype for compilation - {romfilename}')
+			raise Exception(f'unsupported filetype for compilation - {romfilename}')
 
 		# align rom data (after headers) on 256 byte boundaries for optimal performance
 		# https://github.com/Dwedit/PocketNES/issues/5
